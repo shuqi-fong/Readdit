@@ -10,6 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Readdit">
         <activity
+            android:name=".NavigationBar"
+            android:exported="false"
+            android:label="@string/title_activity_navigation_bar" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

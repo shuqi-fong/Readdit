@@ -9,7 +9,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.readdit.databinding.ActivityNavigationBarBinding
 
-class MainActivity : AppCompatActivity() {
+class NavigationBar : AppCompatActivity() {
 
     private lateinit var binding: ActivityNavigationBarBinding
 
