@@ -4,7 +4,9 @@
     <item
         android:id="@+id/navigation_home"
         android:icon="@drawable/ic_home"
-        android:title="@string/title_home" />
+        android:title="@string/title_home"
+        android:drawable="@color/grey"
+        android:state_checked="true"/>
 
     <item
         android:id="@+id/navigation_explore"
