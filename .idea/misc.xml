@@ -3,6 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/ASUS/TARUC/Readdit/app/src/main/res/layout/activity_main.xml" value="0.12708333333333333" />
+        <entry key="..\:/Users/ASUS/TARUC/Readdit/app/src/main/res/layout/activity_navigation_bar.xml" value="0.19122257053291536" />
+        <entry key="..\:/Users/ASUS/TARUC/Readdit/app/src/main/res/layout/fragment_explore.xml" value="0.264" />
+        <entry key="..\:/Users/ASUS/TARUC/Readdit/app/src/main/res/layout/fragment_home.xml" value="0.12708333333333333" />
+        <entry key="..\:/Users/ASUS/TARUC/Readdit/app/src/main/res/layout/list_item_explore.xml" value="0.12708333333333333" />
         <entry key="..\:/Users/jiahe/ReadditAsg/app/src/main/res/drawable/navigation_icon_color.xml" value="0.13541666666666666" />
         <entry key="..\:/Users/jiahe/ReadditAsg/app/src/main/res/drawable/search_bar.xml" value="0.14635416666666667" />
         <entry key="..\:/Users/jiahe/ReadditAsg/app/src/main/res/layout/activitiy_navigation_bar.xml" value="0.1721014492753623" />
