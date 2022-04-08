@@ -8,30 +8,37 @@
     <fragment
         android:id="@+id/navigation_home"
         android:name="com.example.readdit.ui.home.HomeFragment"
-        android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_explore"
-        android:name="com.example.readdit.ui.explore.ExploreFragment"
-        android:label="@string/title_explore"
-        tools:layout="@layout/fragment_explore" />
+        android:name="com.example.readdit.ui.explore.ExploreFragment">
+        <action
+            android:id="@+id/action_navigation_explore_to_navigation_article"
+            app:destination="@id/navigation_article" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_library"
         android:name="com.example.readdit.ui.library.LibraryFragment"
-        android:label="@string/title_library"
         tools:layout="@layout/fragment_library" />
 
     <fragment
         android:id="@+id/navigation_thoughts"
         android:name="com.example.readdit.ui.thoughts.ThoughtsFragment"
-        android:label="@string/title_thoughts"
         tools:layout="@layout/fragment_thoughts" />
 
     <fragment
         android:id="@+id/navigation_profile"
         android:name="com.example.readdit.ui.profile.ProfileFragment"
-        android:label="@string/title_profile"
         tools:layout="@layout/fragment_profile" />
+
+    <fragment
+        android:id="@+id/navigation_article"
+        android:name="com.example.readdit.ui.article.ArticleFragment"
+        tools:layout="@layout/fragment_article" >
+        <argument
+            android:name="topicName"
+            app:argType="string" />
+    </fragment>
 </navigation>

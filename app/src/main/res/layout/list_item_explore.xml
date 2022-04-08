@@ -8,12 +8,20 @@
     app:cardCornerRadius="15dp"
     app:cardElevation="8dp">
 
-    <ImageView
-        android:id="@+id/image_explore"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:adjustViewBounds="true"
-        android:scaleType="fitXY" />
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/explore_image"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:adjustViewBounds="true"
+            android:background="@null"
+            android:scaleType="fitXY"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+    </RelativeLayout>
 
 
 </androidx.cardview.widget.CardView>

@@ -10,6 +10,7 @@ import android.widget.TextView
 import androidx.lifecycle.Observer
 import com.example.readdit.R
 import com.example.readdit.databinding.FragmentLibraryBinding
+import com.google.android.material.tabs.TabLayoutMediator
 
 class LibraryFragment : Fragment() {
 
@@ -31,10 +32,21 @@ class LibraryFragment : Fragment() {
         _binding = FragmentLibraryBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textLibrary
-        libraryViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
+        val adapter = ViewPageAdapter(activity!!.supportFragmentManager,lifecycle)
+
+        binding.viewpager.adapter = adapter
+
+        TabLayoutMediator(binding.tablayout,binding.viewpager){tab,position->
+            when(position){
+                0->{
+                    tab.text="History"
+                }
+                1->{
+                    tab.text="Bookmark"
+                }
+            }
+        }.attach()
+
         return root
     }
 

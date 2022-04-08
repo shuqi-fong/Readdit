@@ -11,6 +11,9 @@ data class Article(
     @PrimaryKey(autoGenerate = true)
     val id: Long = 0L,
 
+    @ColumnInfo(name = "coverImage")
+    var coverImage: String = "",
+
     @ColumnInfo(name = "headline")
     var headline: String = "",
 
@@ -21,7 +24,7 @@ data class Article(
     var body: List<Paragraph>?,
 
     @ColumnInfo(name = "read_count")
-    var readCount: Int = 0,
+        var readCount: Int = 0,
 
     @ColumnInfo(name = "audio")
     var audio: MediaStore.Audio?,
