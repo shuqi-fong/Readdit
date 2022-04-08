@@ -49,7 +49,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="15dp"
-            android:textColor="@color/yellow"
+            android:textColor="@color/peach"
             android:textStyle="bold"
             tools:text="How To Predict Who Will Be Successful In Life" />
 
@@ -58,7 +58,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="8dp"
-            android:textColor="@color/milk"
+            android:textColor="@color/beige"
             tools:text="It’s a simple two-part test that tells you everything you need to know. ..." />
 
     </LinearLayout>
@@ -86,7 +86,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="10dp"
-            android:textColor="@color/milk"
+            android:textColor="@color/beige"
             tools:text="26/02/2022 • 2k reads" />
 
     </LinearLayout>
@@ -106,7 +106,7 @@
         android:layout_height="wrap_content"
         android:textSize="10dp"
         android:textAlignment="center"
-        android:textColor="@color/milk"
+        android:textColor="@color/beige"
         app:layout_constraintTop_toBottomOf="@id/article_bookmark"
         app:layout_constraintEnd_toEndOf="parent"
         tools:text="330"/>
