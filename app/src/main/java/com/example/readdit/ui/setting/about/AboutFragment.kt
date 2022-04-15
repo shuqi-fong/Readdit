@@ -1,4 +1,4 @@
-package com.example.readdit.ui.profile.about
+package com.example.readdit.ui.setting.about
 
 import android.os.Bundle
 import android.text.method.LinkMovementMethod
@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.example.readdit.databinding.FragmentAboutBinding
 
 class AboutFragment : Fragment() {
@@ -23,6 +24,10 @@ class AboutFragment : Fragment() {
 
         // When user click the text, open the url in web browser
         binding.sourceCodeText.movementMethod = LinkMovementMethod.getInstance()
+
+        binding.backButton.setOnClickListener {
+            findNavController().popBackStack()
+        }
 
         return root
     }

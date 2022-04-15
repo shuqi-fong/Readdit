@@ -1,4 +1,4 @@
-package com.example.readdit.ui.profile.notification
+package com.example.readdit.ui.setting.notification
 
 import android.app.*
 import android.content.ContentValues.TAG
@@ -12,6 +12,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import com.example.readdit.databinding.FragmentNotificationBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.DocumentReference
@@ -68,10 +69,11 @@ class NotificationFragment : Fragment() {
                 }
 
                 val isDailyNotiChecked = document.getBoolean("isReminderOn")
-                val reminderHour = document.getLong("reminderHour")!!.toInt()
-                val reminderMin = document.getLong("reminderMin")!!.toInt()
 
                 if(isDailyNotiChecked == true) {
+                    val reminderHour = document.getLong("reminderHour")!!.toInt()
+                    val reminderMin = document.getLong("reminderMin")!!.toInt()
+
                     // Check the switch and display time
                     isDailyNotificationOnSwitch.isChecked = true
                     displayTime(reminderHour, reminderMin)
@@ -97,6 +99,10 @@ class NotificationFragment : Fragment() {
 
         // Create the notification
         createNotificationChannel()
+
+        binding.backButton.setOnClickListener {
+            findNavController().popBackStack()
+        }
 
         return root
     }

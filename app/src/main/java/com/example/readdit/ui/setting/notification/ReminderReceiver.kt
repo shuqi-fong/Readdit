@@ -1,4 +1,4 @@
-package com.example.readdit.ui.profile.notification
+package com.example.readdit.ui.setting.notification
 
 import android.app.PendingIntent
 import android.content.BroadcastReceiver

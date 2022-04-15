@@ -1,4 +1,4 @@
-package com.example.readdit.ui.profile
+package com.example.readdit.ui.setting
 
 import android.content.ContentValues.TAG
 import android.os.Bundle
@@ -88,6 +88,10 @@ class AccountFragment : Fragment() {
             val action = AccountFragmentDirections.actionNavigationAccountToNavigationEditAccountData(getString(R.string.password_df))
 
             findNavController().navigate(action)
+        }
+
+        binding.backButton.setOnClickListener {
+            findNavController().popBackStack()
         }
 
         return root

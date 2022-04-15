@@ -21,6 +21,7 @@
         android:layout_marginBottom="15dp"
         android:background="@drawable/rounded_corners"
         android:backgroundTint="@color/beige"
+        android:fontFamily="@font/poppins_bold"
         android:text="Save"
         android:textAllCaps="false"
         android:textColor="@color/peach"
@@ -35,6 +36,7 @@
         android:layout_height="48dp"
         android:background="@drawable/rounded_corners"
         android:backgroundTint="@color/transparent"
+        android:fontFamily="@font/poppins_bold"
         android:text="Discard"
         android:textAllCaps="false"
         android:textColor="@color/white"
@@ -45,31 +47,31 @@
         app:layout_constraintRight_toRightOf="parent" />
 
     <EditText
+        android:id="@+id/noteEditTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/noteEditTitle"
+        android:fontFamily="@font/poppins_bold"
         android:hint="Title"
-        android:textSize="20sp"
-        app:flow_horizontalBias="1.0"
         android:textColor="@color/peach"
         android:textColorHint="@color/peach"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/back"
-        app:layout_constraintVertical_bias="0.161"/>
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/noteEditContent"
-        android:hint="Type someting here..."
         android:textSize="20sp"
         app:flow_horizontalBias="1.0"
-        android:textColor="@color/beige"
-        android:textColorHint="@color/beige"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/noteEditTitle"
-        app:layout_constraintVertical_bias="0.161"/>
+        app:layout_constraintTop_toBottomOf="@id/back" />
+
+    <EditText
+        android:id="@+id/noteEditContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins"
+        android:hint="Type someting here..."
+        android:textColor="@color/beige"
+        android:textColorHint="@color/beige"
+        android:textSize="20sp"
+        app:flow_horizontalBias="1.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/noteEditTitle" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

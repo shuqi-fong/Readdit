@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="30dp"
-    tools:context=".ui.profile.ProfileFragment">
+    tools:context=".ui.setting.SettingFragment">
 
     <!-- Header -->
 
@@ -16,7 +16,7 @@
         android:fontFamily="@font/hoboken_medium"
         android:text="@string/settings_header"
         android:textColor="@color/peach"
-        android:textSize="24sp"
+        android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

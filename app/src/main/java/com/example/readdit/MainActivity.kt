@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_home, R.id.navigation_explore, R.id.navigation_library, R.id.navigation_thoughts, R.id.navigation_profile
+                R.id.navigation_home, R.id.navigation_explore, R.id.navigation_library, R.id.navigation_notes, R.id.navigation_settings
             )
         )
         navView.setupWithNavController(navController)
@@ -43,7 +43,10 @@ class MainActivity : AppCompatActivity() {
                 nd.id == R.id.navigation_sign_in ||
                 nd.id == R.id.navigation_forgot_password ||
                 nd.id == R.id.navigation_sign_up ||
-                nd.id == R.id.navigation_edit_account_data)
+                nd.id == R.id.navigation_edit_account_data ||
+                        nd.id == R.id.add_notes||
+                        nd.id == R.id.navigation_save_notes
+                    )
             {
                 navView.visibility = View.GONE
             }

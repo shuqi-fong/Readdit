@@ -1,4 +1,4 @@
-package com.example.readdit.ui.profile
+package com.example.readdit.ui.setting
 
 import android.os.Bundle
 import android.text.TextUtils
@@ -81,6 +81,10 @@ class EditAccountDataFragment : Fragment() {
         // Redirect user to edit account button
         binding.discardButton.setOnClickListener {
             findNavController().navigate(R.id.action_navigation_edit_account_data_to_navigation_account)
+        }
+
+        binding.backButton.setOnClickListener {
+            findNavController().popBackStack()
         }
 
         return root

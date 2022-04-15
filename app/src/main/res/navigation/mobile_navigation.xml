@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/navigation_splash_screen">
 
     <fragment
         android:id="@+id/navigation_home"
@@ -35,7 +35,7 @@
     </fragment>
 
     <fragment
-        android:id="@+id/navigation_thoughts"
+        android:id="@+id/navigation_notes"
         android:name="com.example.readdit.ui.notes.NotesFragment"
         tools:layout="@layout/fragment_notes" >
         <action
@@ -52,7 +52,7 @@
         tools:layout="@layout/fragment_add_notes" >
         <action
             android:id="@+id/action_navigation_add_notes_to_navigation_thoughts"
-            app:destination="@id/navigation_thoughts" />
+            app:destination="@id/navigation_notes" />
     </fragment>
 
     <fragment
@@ -65,20 +65,20 @@
     </fragment>
 
     <fragment
-        android:id="@+id/navigation_profile"
-        android:name="com.example.readdit.ui.profile.ProfileFragment"
-        tools:layout="@layout/fragment_profile" >
+        android:id="@+id/navigation_settings"
+        android:name="com.example.readdit.ui.setting.SettingFragment"
+        tools:layout="@layout/fragment_setting" >
         <action
-            android:id="@+id/action_navigation_profile_to_navigation_splash_screen"
+            android:id="@+id/action_navigation_setting_to_navigation_splash_screen"
             app:destination="@id/navigation_splash_screen" />
         <action
-            android:id="@+id/action_navigation_profile_to_navigation_notification"
+            android:id="@+id/action_navigation_setting_to_navigation_notification"
             app:destination="@id/navigation_notification" />
         <action
-            android:id="@+id/action_navigation_profile_to_navigation_account"
+            android:id="@+id/action_navigation_setting_to_navigation_account"
             app:destination="@id/navigation_account" />
         <action
-            android:id="@+id/action_navigation_profile_to_navigation_about"
+            android:id="@+id/action_navigation_setting_to_navigation_about"
             app:destination="@id/navigation_about" />
     </fragment>
 
@@ -165,12 +165,12 @@
 
     <fragment
         android:id="@+id/navigation_about"
-        android:name="com.example.readdit.ui.profile.about.AboutFragment"
+        android:name="com.example.readdit.ui.setting.about.AboutFragment"
         tools:layout="@layout/fragment_about" />
 
     <fragment
         android:id="@+id/navigation_account"
-        android:name="com.example.readdit.ui.profile.AccountFragment"
+        android:name="com.example.readdit.ui.setting.AccountFragment"
         tools:layout="@layout/fragment_account" >
         <action
             android:id="@+id/action_navigation_account_to_navigation_edit_account_data"
@@ -179,7 +179,7 @@
 
     <fragment
         android:id="@+id/navigation_edit_account_data"
-        android:name="com.example.readdit.ui.profile.EditAccountDataFragment"
+        android:name="com.example.readdit.ui.setting.EditAccountDataFragment"
         tools:layout="@layout/fragment_edit_account_data" >
         <argument
             android:name="dataField"
@@ -191,7 +191,7 @@
 
     <fragment
         android:id="@+id/navigation_notification"
-        android:name="com.example.readdit.ui.profile.notification.NotificationFragment"
+        android:name="com.example.readdit.ui.setting.notification.NotificationFragment"
         tools:layout="@layout/fragment_notification" />
 
 </navigation>
