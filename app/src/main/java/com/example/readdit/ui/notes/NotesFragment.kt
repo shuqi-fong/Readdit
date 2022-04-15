@@ -67,6 +67,12 @@ class NotesFragment : Fragment() ,NotesAdapter.OnItemClickListener
             findNavController().navigate(R.id.action_navigation_thoughts_to_navigation_add_notes)
         }
 
+        //        if(no data) {
+        //            binding.noDataText.visibility = View.VISIBLE
+        //        } else {
+        //            binding.noDataText.visibility = View.INVISIBLE
+        //        }
+
         return root
     }
 

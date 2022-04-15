@@ -44,8 +44,8 @@ class MainActivity : AppCompatActivity() {
                 nd.id == R.id.navigation_forgot_password ||
                 nd.id == R.id.navigation_sign_up ||
                 nd.id == R.id.navigation_edit_account_data ||
-                        nd.id == R.id.add_notes||
-                        nd.id == R.id.navigation_save_notes
+                nd.id == R.id.navigation_add_notes||
+                nd.id == R.id.navigation_save_notes
                     )
             {
                 navView.visibility = View.GONE

@@ -7,7 +7,22 @@ tools:context=".ui.article.ArticleFragment"
 xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
-<androidx.recyclerview.widget.RecyclerView
+    <TextView
+        android:id="@+id/no_data_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins"
+        android:text="Start reading something today!"
+        android:textColor="@color/light_grey"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@id/recycler_view"
+        app:layout_constraintEnd_toEndOf="@id/recycler_view"
+        app:layout_constraintStart_toStartOf="recycler_view"
+        app:layout_constraintTop_toTopOf="@id/recycler_view"
+        tools:layout_editor_absoluteX="148dp"
+        tools:layout_editor_absoluteY="445dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
     android:id="@+id/recycler_view"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
