@@ -21,16 +21,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
+    <SearchView
         android:id="@+id/search_bar"
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:textSize="20dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/search_bar"
-        android:hint="What do you want to read today ?"
+        android:queryHint="What do you want to read today ?"
+        android:iconifiedByDefault="false"
         android:minHeight="48dp"
-        android:paddingLeft="5dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/explore" />
 
