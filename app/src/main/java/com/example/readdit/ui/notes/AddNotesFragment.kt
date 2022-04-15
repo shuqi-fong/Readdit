@@ -8,14 +8,17 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.readdit.R
 import com.example.readdit.databinding.FragmentAddNotesBinding
+import com.example.readdit.ui.ViewModel
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 
 class AddNotesFragment : Fragment() {
 
+    private lateinit var ViewModel: ViewModel
     private lateinit var discard: Button
     private lateinit var builder: AlertDialog.Builder
     private var _binding: FragmentAddNotesBinding? = null
@@ -31,6 +34,7 @@ class AddNotesFragment : Fragment() {
     ): View? {
         _binding = FragmentAddNotesBinding.inflate(inflater, container, false)
         val root: View = binding.root
+        ViewModel = ViewModelProvider(this).get(com.example.readdit.ui.ViewModel::class.java)
 
         builder = AlertDialog.Builder(requireContext())
         val title = binding.noteEditTitle.text.toString()
@@ -56,7 +60,7 @@ class AddNotesFragment : Fragment() {
                 .setMessage("Do you want to save this note?")
                 .setCancelable(true)
                 .setPositiveButton("Yes"){dialogInterface,it ->
-                    addNotes()
+                    ViewModel.addNotes(binding.noteEditTitle.text.toString(),binding.noteEditContent.text.toString())
                     Toast.makeText(requireContext(),"Your Note have been saved",Toast.LENGTH_SHORT).show()
                 }
                 .setNegativeButton("No"){dialogInterface,it ->
@@ -68,15 +72,7 @@ class AddNotesFragment : Fragment() {
         return root
     }
 
-    private fun addNotes() {
-        var db = FirebaseFirestore.getInstance()
-        val data = hashMapOf(
-            "title" to binding.noteEditTitle.text.toString(),
-            "body" to binding.noteEditContent.text.toString(),
-            "lastEdited" to FieldValue.serverTimestamp(),
-        )
-        db.collection("user").document("user001").collection("notes").add(data)
-    }
+
 
     override fun onDestroyView() {
         super.onDestroyView()
