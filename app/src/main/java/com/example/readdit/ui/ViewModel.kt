@@ -12,11 +12,13 @@ import com.example.readdit.ui.article.ArticleData
 import com.example.readdit.ui.explore.ExploreData
 import com.example.readdit.ui.notes.NotesData
 import com.google.firebase.Timestamp
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.QuerySnapshot
 import com.google.firebase.firestore.*
 
 class ViewModel : ViewModel() {
     var firebaseRepository = FirestoreRepository()
+    var user = FirebaseAuth.getInstance().currentUser
 
     private val _explore: MutableLiveData<ArrayList<ExploreData>> = MutableLiveData()
     val explore: LiveData<ArrayList<ExploreData>> get() = _explore
@@ -74,7 +76,7 @@ class ViewModel : ViewModel() {
     }
 
     fun getReadHistory(){
-        firebaseRepository.getReadHistory().whereEqualTo("user", "user001")
+        firebaseRepository.getReadHistory().whereEqualTo("user", user.toString())
             .addSnapshotListener(EventListener<QuerySnapshot> { value, e ->
                 if (e != null) {
                     Log.d("kfc", "Listen failed.", e)
@@ -90,7 +92,7 @@ class ViewModel : ViewModel() {
             })
     }
     fun getHistory() {
-        firebaseRepository.getReadHistory().whereEqualTo("user", "user001")
+        firebaseRepository.getReadHistory().whereEqualTo("user", user.toString())
             .whereEqualTo("isRead", true).orderBy("readDate",Query.Direction.DESCENDING)
             .addSnapshotListener(EventListener<QuerySnapshot> { value, e ->
                 if (e != null) {
@@ -167,15 +169,8 @@ class ViewModel : ViewModel() {
             })
     }
 
-    fun getDetailArticle(articleID : String,callback:(ArticleData)-> Unit){
-        var articleDetail : ArticleData
-        firebaseRepository.getArticle().document(articleID).get().addOnSuccessListener {
-            articleDetail =  it.toObject(ArticleData::class.java)!!
-            callback(articleDetail)
-        }
-    }
     fun getBookmarked() {
-        firebaseRepository.getReadHistory().whereEqualTo("user", "user001")
+        firebaseRepository.getReadHistory().whereEqualTo("user", user.toString())
             .whereEqualTo("isBookmarked", true)
             .addSnapshotListener(EventListener<QuerySnapshot> { value, e ->
                 if (e != null) {
@@ -193,7 +188,7 @@ class ViewModel : ViewModel() {
 
     }
     fun getHomeHistory(){
-        firebaseRepository.getReadHistory().whereEqualTo("user", "user001")
+        firebaseRepository.getReadHistory().whereEqualTo("user", user.toString())
             .whereEqualTo("isRead", true).orderBy("readDate",Query.Direction.DESCENDING).limit(2)
             .addSnapshotListener(EventListener<QuerySnapshot> { value, e ->
                 if (e != null) {
@@ -241,7 +236,7 @@ class ViewModel : ViewModel() {
             "isBookmarked" to false,
             "isRead" to true,
             "readDate" to FieldValue.serverTimestamp(),
-            "user" to "user001"
+            "user" to user.toString()
         )
         firebaseRepository.getReadHistory().add(data)
     }
@@ -250,10 +245,23 @@ class ViewModel : ViewModel() {
         firebaseRepository.getReadHistory().document(readHistoryID).update("readDate",FieldValue.serverTimestamp())
     }
 
-
-
-    fun updateArticleReadCount(articleID: String,readCount: Int){
-        firebaseRepository.getArticle().document(articleID).update("readCount",readCount+1)
+    fun addNotes(title: String, body: String) {
+        var db = FirebaseFirestore.getInstance()
+        val data = hashMapOf(
+            "title" to title,
+            "body" to body,
+            "lastEdited" to FieldValue.serverTimestamp(),
+        )
+        db.collection("user").document(user.toString()).collection("notes").add(data)
     }
 
+    fun saveNotes(noteID : String,title: String, body: String) {
+        var db = FirebaseFirestore.getInstance()
+        db.collection("user").document(user.toString()).collection("notes").document(noteID).
+        update(mapOf(
+            "title" to title,
+            "body" to body,
+            "lastEdited" to FieldValue.serverTimestamp(),
+        ))
+    }
 }
