@@ -9,6 +9,9 @@
         android:id="@+id/navigation_home"
         android:name="com.example.readdit.ui.home.HomeFragment"
         tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_detail_article"
+            app:destination="@id/navigation_detail_article" />
     </fragment>
 
     <fragment
@@ -17,17 +20,49 @@
         <action
             android:id="@+id/action_navigation_explore_to_navigation_article"
             app:destination="@id/navigation_article" />
+        <action
+            android:id="@+id/action_navigation_explore_to_navigation_detail_article"
+            app:destination="@id/navigation_detail_article" />
     </fragment>
 
     <fragment
         android:id="@+id/navigation_library"
         android:name="com.example.readdit.ui.library.LibraryFragment"
-        tools:layout="@layout/fragment_library" />
+        tools:layout="@layout/fragment_library" >
+        <action
+            android:id="@+id/action_navigation_library_to_navigation_detail_article"
+            app:destination="@id/navigation_detail_article" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_thoughts"
-        android:name="com.example.readdit.ui.thoughts.ThoughtsFragment"
-        tools:layout="@layout/fragment_thoughts" />
+        android:name="com.example.readdit.ui.notes.NotesFragment"
+        tools:layout="@layout/fragment_notes" >
+        <action
+            android:id="@+id/action_navigation_thoughts_to_navigation_add_notes"
+            app:destination="@id/navigation_add_notes" />
+        <action
+            android:id="@+id/action_navigation_thoughts_to_navigation_save_notes"
+            app:destination="@id/navigation_save_notes" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_add_notes"
+        android:name="com.example.readdit.ui.notes.AddNotesFragment"
+        tools:layout="@layout/fragment_add_notes" >
+        <action
+            android:id="@+id/action_navigation_add_notes_to_navigation_thoughts"
+            app:destination="@id/navigation_thoughts" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_save_notes"
+        android:name="com.example.readdit.ui.notes.SaveNotesFragment"
+        tools:layout="@layout/fragment_save_notes" >
+        <argument
+            android:name="NotesData"
+            app:argType="com.example.readdit.ui.notes.NotesData" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_profile"
@@ -54,6 +89,18 @@
         <argument
             android:name="topicName"
             app:argType="string" />
+        <action
+            android:id="@+id/action_navigation_article_to_navigation_detail_article"
+            app:destination="@id/navigation_detail_article" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_detail_article"
+        android:name="com.example.readdit.ui.article.DetailArticleFragment"
+        tools:layout="@layout/detail_item_article" >
+        <argument
+            android:name="ArticleData"
+            app:argType="com.example.readdit.ui.article.ArticleData" />
     </fragment>
 
     <fragment

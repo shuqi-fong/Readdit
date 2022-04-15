@@ -1,19 +1,22 @@
 package com.example.readdit.ui.article
 
-import android.net.Uri
-import com.google.type.DateTime
-import java.util.*
+import android.os.Parcelable
+import com.google.firebase.Timestamp
+import com.google.firebase.firestore.DocumentId
+import kotlinx.android.parcel.Parcelize
+@Parcelize
+data class ArticleData(
 
-data class ArticleData (
     val audio: String,
     val body: String,
     val coverImage: String,
-    val datePosted: String,
-    val description: String,
-    val duration: String,
-    val readCount: String,
+    val datePosted: Timestamp?,
+    val durationMin: Int,
+    val readCount: Int,
     val title: String,
-    val topic: String
-){
-    constructor():this("","","","","","","","","")
+    val topic: String,
+    @DocumentId
+    val id: String
+):Parcelable {
+    constructor():this("","","",null,0,0,"","","")
 }

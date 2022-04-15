@@ -81,4 +81,6 @@
     <string name="back_to_sign_in"><![CDATA[< Back To Sign In]]></string>
     <string name="forgot_pw_caption">Enter your email to receive a \nreset password link.</string>
     <string name="account_header">Account</string>
+    <string name="title_notes">Notes</string>
+    <string name="search_notes_hint">Search Notes</string>
 </resources>
