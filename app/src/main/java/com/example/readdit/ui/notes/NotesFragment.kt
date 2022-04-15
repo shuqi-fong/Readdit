@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
+import android.widget.SearchView
 import android.widget.TextView
 import androidx.lifecycle.Observer
 import androidx.navigation.Navigation.findNavController
@@ -19,19 +20,23 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.readdit.R
 import com.example.readdit.databinding.FragmentNotesBinding
+import com.example.readdit.ui.ViewModel
+import com.example.readdit.ui.article.ArticleAdapter
 import com.example.readdit.ui.article.ArticleData
 import com.example.readdit.ui.explore.ExploreAdapter
+import com.example.readdit.ui.home.HomeFragmentDirections
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.firestore.*
 
 class NotesFragment : Fragment() ,NotesAdapter.OnItemClickListener
 {
 
-    private lateinit var notesViewModel: NotesViewModel
+    private lateinit var ViewModel: ViewModel
     private lateinit var db: FirebaseFirestore
     private lateinit var recyclerView: RecyclerView
     private lateinit var fab: FloatingActionButton
     private lateinit var notesList: ArrayList<NotesData>
+    private lateinit var filteredNotesList: ArrayList<NotesData>
     private lateinit var notesAdapter: NotesAdapter
     private var _binding: FragmentNotesBinding? = null
 
@@ -44,39 +49,67 @@ class NotesFragment : Fragment() ,NotesAdapter.OnItemClickListener
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        notesViewModel = ViewModelProvider(this).get(NotesViewModel::class.java)
+        ViewModel = ViewModelProvider(this).get(com.example.readdit.ui.ViewModel::class.java)
 
         _binding = FragmentNotesBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+        notesList = arrayListOf()
+        ViewModel.notes.observe(viewLifecycleOwner, Observer {
+            notesList = it
+            notesAdapter = NotesAdapter(requireContext(),notesList,this)
+            binding.recyclerView.adapter = notesAdapter
+        })
+
+        search()
+
         binding.addNotes.setOnClickListener() {
             findNavController().navigate(R.id.action_navigation_thoughts_to_navigation_add_notes)
         }
-        notesList = arrayListOf()
-        notesAdapter = NotesAdapter(requireContext(),notesList,this)
-        binding.recyclerView.adapter = notesAdapter
-        listNotes()
+
         return root
     }
 
-    private fun listNotes() {
-        db = FirebaseFirestore.getInstance()
-        db.collection("user").document("user001").collection("notes")
-            .addSnapshotListener(object : EventListener<QuerySnapshot> {
-                override fun onEvent(value: QuerySnapshot?, error: FirebaseFirestoreException?) {
-                    if (error != null) {
-                        Log.d("Firestore Error", error.message.toString())
-                    }
+    fun search(){
+        binding.searchBar.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(content: String?): Boolean {
+                return false
+            }
 
-                    for (dc: DocumentChange in value?.documentChanges!!) {
-                        if (dc.type == DocumentChange.Type.ADDED) {
-                            notesList.add(dc.document.toObject(NotesData::class.java))
-                        }
-                    }
-                    Log.d("kfc",notesList.toString())
-                    notesAdapter.notifyDataSetChanged()
+            override fun onQueryTextChange(content: String?): Boolean {
+                getNotesData()
+                filter(content)
+                return false
+            }
+        })
+    }
+
+    private fun getNotesData() {
+        ViewModel.notes.observe(viewLifecycleOwner, Observer {
+            notesList = it
+            notesAdapter = NotesAdapter(requireContext(), notesList, this)
+            binding.recyclerView.adapter = notesAdapter
+        })
+    }
+
+    private fun filter(text: String?) {
+        getNotesData()
+        filteredNotesList = arrayListOf()
+        notesAdapter = NotesAdapter(requireContext(), filteredNotesList, this)
+        //looping through existing elements
+        for (notes in notesList) {
+            //if the existing elements contains the search input
+            if (text != null) {
+                if (notes.title.lowercase().contains(text.lowercase())) {
+                    //adding the element to filtered list
+                    filteredNotesList.add(notes)
                 }
-            })
+            }
+        }
+        //calling a method of the adapter class and passing the filtered list
+        binding.recyclerView.adapter = notesAdapter
+        binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        notesAdapter.notifyDataSetChanged()
     }
 
     override fun onDestroyView() {
@@ -84,8 +117,9 @@ class NotesFragment : Fragment() ,NotesAdapter.OnItemClickListener
         _binding = null
     }
 
-    override fun onItemClick(position: Int) {
-        TODO("Not yet implemented")
+    override fun onItemClick(notes: NotesData) {
+        val action = NotesFragmentDirections.actionNavigationThoughtsToNavigationSaveNotes(notes)
+        findNavController().navigate(action)
     }
 
 }

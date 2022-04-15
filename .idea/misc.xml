@@ -3,17 +3,6 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Readdit/app/src/main/res/drawable/rounded_corner.xml" value="0.1155" />
-        <entry key="..\:/Readdit/app/src/main/res/layout/fragment_add_notes.xml" value="0.33" />
-        <entry key="..\:/Readdit/app/src/main/res/layout/fragment_article.xml" value="0.36666666666666664" />
-        <entry key="..\:/Readdit/app/src/main/res/layout/fragment_explore.xml" value="0.36666666666666664" />
-        <entry key="..\:/Readdit/app/src/main/res/layout/fragment_library.xml" value="0.36666666666666664" />
-        <entry key="..\:/Readdit/app/src/main/res/layout/fragment_notes.xml" value="0.33" />
-        <entry key="..\:/Readdit/app/src/main/res/layout/fragment_thoughts.xml" value="0.28125" />
-        <entry key="..\:/Readdit/app/src/main/res/layout/fragment_view_notes.xml" value="0.75" />
-        <entry key="..\:/Readdit/app/src/main/res/layout/list_item_article.xml" value="0.36666666666666664" />
-        <entry key="..\:/Readdit/app/src/main/res/layout/list_item_explore.xml" value="0.36666666666666664" />
-        <entry key="..\:/Readdit/app/src/main/res/layout/list_item_notes.xml" value="0.5" />
         <entry key="..\:/Users/jiahe/ReadditAsg/app/src/main/res/drawable-anydpi/ic_bookmark_marked.xml" value="0.13177083333333334" />
         <entry key="..\:/Users/jiahe/ReadditAsg/app/src/main/res/drawable-anydpi/ic_bookmark_unmarked.xml" value="0.13177083333333334" />
         <entry key="..\:/Users/jiahe/ReadditAsg/app/src/main/res/drawable/icon_bookmark.xml" value="0.2361111111111111" />
@@ -25,18 +14,23 @@
         <entry key="..\:/Users/jiahe/ReadditAsg/app/src/main/res/layout/activity_main.xml" value="0.11927083333333334" />
         <entry key="..\:/Users/jiahe/ReadditAsg/app/src/main/res/layout/activity_navigation_bar.xml" value="0.1721014492753623" />
         <entry key="..\:/Users/jiahe/ReadditAsg/app/src/main/res/layout/detail_item_article.xml" value="0.3229166666666667" />
+        <entry key="..\:/Users/jiahe/ReadditAsg/app/src/main/res/layout/fragment_add_notes.xml" value="0.2463768115942029" />
         <entry key="..\:/Users/jiahe/ReadditAsg/app/src/main/res/layout/fragment_article.xml" value="0.264" />
         <entry key="..\:/Users/jiahe/ReadditAsg/app/src/main/res/layout/fragment_bookmark.xml" value="0.1" />
         <entry key="..\:/Users/jiahe/ReadditAsg/app/src/main/res/layout/fragment_explore.xml" value="0.264" />
         <entry key="..\:/Users/jiahe/ReadditAsg/app/src/main/res/layout/fragment_history.xml" value="0.1" />
         <entry key="..\:/Users/jiahe/ReadditAsg/app/src/main/res/layout/fragment_home.xml" value="0.152" />
         <entry key="..\:/Users/jiahe/ReadditAsg/app/src/main/res/layout/fragment_library.xml" value="0.1" />
+        <entry key="..\:/Users/jiahe/ReadditAsg/app/src/main/res/layout/fragment_notes.xml" value="0.12360688956433637" />
         <entry key="..\:/Users/jiahe/ReadditAsg/app/src/main/res/layout/fragment_profile.xml" value="0.1721014492753623" />
+        <entry key="..\:/Users/jiahe/ReadditAsg/app/src/main/res/layout/fragment_save_notes.xml" value="0.2463768115942029" />
         <entry key="..\:/Users/jiahe/ReadditAsg/app/src/main/res/layout/fragment_thoughts.xml" value="0.1721014492753623" />
+        <entry key="..\:/Users/jiahe/ReadditAsg/app/src/main/res/layout/fragment_view_notes.xml" value="0.2463768115942029" />
         <entry key="..\:/Users/jiahe/ReadditAsg/app/src/main/res/layout/list_item_article.xml" value="0.5140845070422535" />
         <entry key="..\:/Users/jiahe/ReadditAsg/app/src/main/res/layout/list_item_bookmark.xml" value="0.1" />
         <entry key="..\:/Users/jiahe/ReadditAsg/app/src/main/res/layout/list_item_explore.xml" value="0.264" />
         <entry key="..\:/Users/jiahe/ReadditAsg/app/src/main/res/layout/list_item_history.xml" value="0.6142857142857143" />
+        <entry key="..\:/Users/jiahe/ReadditAsg/app/src/main/res/layout/list_item_notes.xml" value="0.6" />
         <entry key="..\:/Users/jiahe/ReadditAsg/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/jiahe/ReadditAsg/app/src/main/res/menu/navigation_item_color.xml" value="0.11927083333333334" />
       </map>

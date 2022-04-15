@@ -61,28 +61,24 @@ class ExploreFragment : Fragment(),ExploreAdapter.OnItemClickListener,ArticleAda
     }
 
     fun search(){
-
         binding.searchBar.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(content: String?): Boolean {
                 return false
             }
 
             override fun onQueryTextChange(content: String?): Boolean {
-                Log.d("kfc",content.toString())
-                Log.d("kfc",content.isNullOrEmpty().toString())
                 if (content.isNullOrEmpty()){
-                    readExploreData()
+                    getExploreData()
                 }else{
-                    readArticleData()
+                    getArticleData()
                     filter(content)
                 }
                 return false
             }
-
         })
     }
 
-    fun readExploreData(){
+    fun getExploreData(){
         ViewModel.explore.observe(viewLifecycleOwner, Observer{
             exploreList = it
             exploreAdapter = ExploreAdapter(requireContext(),exploreList,this)
@@ -91,7 +87,7 @@ class ExploreFragment : Fragment(),ExploreAdapter.OnItemClickListener,ArticleAda
         })
     }
 
-    private fun readArticleData() {
+    private fun getArticleData() {
         ViewModel.article.observe(viewLifecycleOwner, Observer{
             articleList = it
             articleAdapter = ArticleAdapter(requireContext(),articleList,readHistoryList,this)
@@ -100,14 +96,14 @@ class ExploreFragment : Fragment(),ExploreAdapter.OnItemClickListener,ArticleAda
         Log.d("kfc",articleList.toString())
     }
 
-    private fun readReadHistoryData() {
+    private fun getReadHistoryData() {
         ViewModel.readhistory.observe(viewLifecycleOwner, Observer{
             readHistoryList = it
         })
     }
 
     private fun filter(text: String) {
-        readReadHistoryData()
+        getReadHistoryData()
         filteredArticleList = arrayListOf()
         articleAdapter = ArticleAdapter(requireContext(),filteredArticleList,readHistoryList,this)
         //looping through existing elements
@@ -138,7 +134,7 @@ class ExploreFragment : Fragment(),ExploreAdapter.OnItemClickListener,ArticleAda
     }
 
     override fun onItemClick(article: ArticleData) {
-        val action = ExploreFragmentDirections.actionNavigationExploreToNavigationDetailArticle(article.id)
+        val action = ExploreFragmentDirections.actionNavigationExploreToNavigationDetailArticle(article)
         findNavController().navigate(action)
     }
 

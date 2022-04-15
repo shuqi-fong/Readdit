@@ -39,22 +39,18 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
-                <TextView
-                    android:id="@+id/title"
-                    android:layout_width="300dp"
-                    android:layout_height="wrap_content"
-                    android:text="The Ultimate Productivity Hack Is Saying No"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    android:textStyle="bold"
-                    android:fontFamily="@font/hoboken_medium"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                <Button
+                    android:id="@+id/back"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/ic_back"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent" />
 
                 <CheckBox
                     android:id="@+id/article_bookmark"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:background="@color/transparent"
                     android:button="@drawable/icon_bookmark"
                     app:useMaterialThemeColors="false"
@@ -62,6 +58,20 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:ignore="SpeakableTextPresentCheck" />
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="10dp"
+                    android:text="The Ultimate Productivity Hack Is Saying No"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/hoboken_medium"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/back" />
 
                 <TextView
                     android:id="@+id/date"

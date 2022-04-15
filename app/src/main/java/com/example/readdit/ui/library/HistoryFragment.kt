@@ -59,7 +59,7 @@ class HistoryFragment : Fragment(), ArticleAdapter.OnItemClickListener {
     }
 
     override fun onItemClick(article: ArticleData) {
-        val action = LibraryFragmentDirections.actionNavigationLibraryToNavigationDetailArticle(article.id)
+        val action = LibraryFragmentDirections.actionNavigationLibraryToNavigationDetailArticle(article)
         findNavController().navigate(action)
     }
 

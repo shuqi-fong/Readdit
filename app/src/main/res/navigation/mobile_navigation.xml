@@ -41,6 +41,9 @@
         <action
             android:id="@+id/action_navigation_thoughts_to_navigation_add_notes"
             app:destination="@id/navigation_add_notes" />
+        <action
+            android:id="@+id/action_navigation_thoughts_to_navigation_save_notes"
+            app:destination="@id/navigation_save_notes" />
     </fragment>
 
     <fragment
@@ -50,6 +53,15 @@
         <action
             android:id="@+id/action_navigation_add_notes_to_navigation_thoughts"
             app:destination="@id/navigation_thoughts" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_save_notes"
+        android:name="com.example.readdit.ui.notes.SaveNotesFragment"
+        tools:layout="@layout/fragment_save_notes" >
+        <argument
+            android:name="NotesData"
+            app:argType="com.example.readdit.ui.notes.NotesData" />
     </fragment>
 
     <fragment
@@ -74,7 +86,7 @@
         android:name="com.example.readdit.ui.article.DetailArticleFragment"
         tools:layout="@layout/detail_item_article" >
         <argument
-            android:name="ArticleID"
-            app:argType="string" />
+            android:name="ArticleData"
+            app:argType="com.example.readdit.ui.article.ArticleData" />
     </fragment>
 </navigation>

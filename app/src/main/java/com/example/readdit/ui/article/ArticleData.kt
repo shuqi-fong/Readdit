@@ -4,7 +4,7 @@ import android.os.Parcelable
 import com.google.firebase.Timestamp
 import com.google.firebase.firestore.DocumentId
 import kotlinx.android.parcel.Parcelize
-
+@Parcelize
 data class ArticleData(
 
     val audio: String,
@@ -17,6 +17,6 @@ data class ArticleData(
     val topic: String,
     @DocumentId
     val id: String
-) {
+):Parcelable {
     constructor():this("","","",null,0,0,"","","")
 }

@@ -10,6 +10,7 @@ import com.example.readdit.ui.article.ReadHistoryData
 import com.example.readdit.ui.FirestoreRepository
 import com.example.readdit.ui.article.ArticleData
 import com.example.readdit.ui.explore.ExploreData
+import com.example.readdit.ui.notes.NotesData
 import com.google.firebase.Timestamp
 import com.google.firebase.firestore.QuerySnapshot
 import com.google.firebase.firestore.*
@@ -41,6 +42,9 @@ class ViewModel : ViewModel() {
     private val _quote: MutableLiveData<ArrayList<QuoteData>> = MutableLiveData()
     val quote: LiveData<ArrayList<QuoteData>> get() = _quote
 
+    private val _notes: MutableLiveData<ArrayList<NotesData>> = MutableLiveData()
+    val notes: LiveData<ArrayList<NotesData>> get() = _notes
+
     init {
         getExplore()
         getArticle()
@@ -49,6 +53,7 @@ class ViewModel : ViewModel() {
         getHistory()
         getQuote()
         getHomeHistory()
+        getNotes()
     }
 
     fun getExplore(){
@@ -115,6 +120,22 @@ class ViewModel : ViewModel() {
                     articleList.add(item)
                 }
                 _article.value = articleList
+            })
+    }
+
+    fun getNotes(){
+        firebaseRepository.getNotes().orderBy("lastEdited",Query.Direction.DESCENDING)
+            .addSnapshotListener(EventListener<QuerySnapshot> { value, e ->
+                if (e != null) {
+                    Log.d("kfc", "Listen failed.", e)
+                    return@EventListener
+                }
+                var notesList: ArrayList<NotesData> = arrayListOf()
+                for (doc in value!!) {
+                    var item = doc.toObject(NotesData::class.java)
+                    notesList.add(item)
+                }
+                _notes.value = notesList
             })
     }
 

@@ -14,6 +14,7 @@ import com.example.readdit.databinding.FragmentBookmarkBinding
 import com.example.readdit.ui.ViewModel
 import com.example.readdit.ui.article.ArticleAdapter
 import com.example.readdit.ui.article.ArticleData
+import com.example.readdit.ui.article.ArticleFragmentDirections
 import com.example.readdit.ui.article.ReadHistoryData
 import com.google.firebase.firestore.*
 
@@ -56,14 +57,14 @@ class BookmarkFragment : Fragment(), ArticleAdapter.OnItemClickListener {
         return root
     }
 
-    override fun onItemClick(article: ArticleData) {
-        val action = LibraryFragmentDirections.actionNavigationLibraryToNavigationDetailArticle(article.id)
-        findNavController().navigate(action)
-    }
-
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onItemClick(article: ArticleData) {
+        val action = ArticleFragmentDirections.actionNavigationArticleToNavigationDetailArticle(article)
+        findNavController().navigate(action)
     }
 
 }
