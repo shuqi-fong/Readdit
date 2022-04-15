@@ -47,6 +47,12 @@ class LibraryFragment : Fragment() {
             }
         }.attach()
 
+//        if(no data) {
+//            binding.noDataText.visibility = View.VISIBLE
+//        } else {
+//            binding.noDataText.visibility = View.INVISIBLE
+//        }
+
         return root
     }
 
