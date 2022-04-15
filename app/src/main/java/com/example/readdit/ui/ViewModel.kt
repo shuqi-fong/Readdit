@@ -76,7 +76,7 @@ class ViewModel : ViewModel() {
     }
 
     fun getReadHistory(){
-        firebaseRepository.getReadHistory().whereEqualTo("user", user.toString())
+        firebaseRepository.getReadHistory().whereEqualTo("user", user?.uid.toString())
             .addSnapshotListener(EventListener<QuerySnapshot> { value, e ->
                 if (e != null) {
                     Log.d("kfc", "Listen failed.", e)
@@ -92,7 +92,7 @@ class ViewModel : ViewModel() {
             })
     }
     fun getHistory() {
-        firebaseRepository.getReadHistory().whereEqualTo("user", user.toString())
+        firebaseRepository.getReadHistory().whereEqualTo("user", user?.uid.toString())
             .whereEqualTo("isRead", true).orderBy("readDate",Query.Direction.DESCENDING)
             .addSnapshotListener(EventListener<QuerySnapshot> { value, e ->
                 if (e != null) {
@@ -170,7 +170,7 @@ class ViewModel : ViewModel() {
     }
 
     fun getBookmarked() {
-        firebaseRepository.getReadHistory().whereEqualTo("user", user.toString())
+        firebaseRepository.getReadHistory().whereEqualTo("user", user?.uid.toString())
             .whereEqualTo("isBookmarked", true)
             .addSnapshotListener(EventListener<QuerySnapshot> { value, e ->
                 if (e != null) {
@@ -188,7 +188,7 @@ class ViewModel : ViewModel() {
 
     }
     fun getHomeHistory(){
-        firebaseRepository.getReadHistory().whereEqualTo("user", user.toString())
+        firebaseRepository.getReadHistory().whereEqualTo("user", user?.uid.toString())
             .whereEqualTo("isRead", true).orderBy("readDate",Query.Direction.DESCENDING).limit(2)
             .addSnapshotListener(EventListener<QuerySnapshot> { value, e ->
                 if (e != null) {
@@ -236,7 +236,7 @@ class ViewModel : ViewModel() {
             "isBookmarked" to false,
             "isRead" to true,
             "readDate" to FieldValue.serverTimestamp(),
-            "user" to user.toString()
+            "user" to user?.uid.toString()
         )
         firebaseRepository.getReadHistory().add(data)
     }
@@ -252,12 +252,12 @@ class ViewModel : ViewModel() {
             "body" to body,
             "lastEdited" to FieldValue.serverTimestamp(),
         )
-        db.collection("user").document(user.toString()).collection("notes").add(data)
+        db.collection("user").document(user?.uid.toString()).collection("notes").add(data)
     }
 
     fun saveNotes(noteID : String,title: String, body: String) {
         var db = FirebaseFirestore.getInstance()
-        db.collection("user").document(user.toString()).collection("notes").document(noteID).
+        db.collection("user").document(user?.uid.toString()).collection("notes").document(noteID).
         update(mapOf(
             "title" to title,
             "body" to body,

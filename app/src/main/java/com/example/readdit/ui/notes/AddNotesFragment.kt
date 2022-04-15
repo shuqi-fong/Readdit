@@ -43,7 +43,7 @@ class AddNotesFragment : Fragment() {
             findNavController().popBackStack()
         }
         binding.discard.setOnClickListener() {
-            builder.setTitle("Alert!")
+            builder.setTitle("Discard")
                 .setMessage("Do you want to discard this note?")
                 .setCancelable(true)
                 .setPositiveButton("Yes"){dialogInterface,it ->
@@ -56,7 +56,7 @@ class AddNotesFragment : Fragment() {
                 .show()
         }
         binding.save.setOnClickListener() {
-            builder.setTitle("Alert!")
+            builder.setTitle("Save")
                 .setMessage("Do you want to save this note?")
                 .setCancelable(true)
                 .setPositiveButton("Yes"){dialogInterface,it ->
