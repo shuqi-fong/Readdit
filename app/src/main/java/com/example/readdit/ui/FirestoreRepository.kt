@@ -30,7 +30,7 @@ class FirestoreRepository {
     }
 
     fun getNotes(): CollectionReference {
-        var collectionReference =   db.collection("user").document(user.toString()).collection("notes")
+        var collectionReference =   db.collection("user").document(user?.uid.toString()).collection("notes")
         return collectionReference
     }
 }
