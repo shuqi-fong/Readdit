@@ -61,7 +61,6 @@ class ExploreFragment : Fragment(),ExploreAdapter.OnItemClickListener,ArticleAda
     }
 
     fun search(){
-
         binding.searchBar.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(content: String?): Boolean {
                 return false
@@ -78,7 +77,6 @@ class ExploreFragment : Fragment(),ExploreAdapter.OnItemClickListener,ArticleAda
                 }
                 return false
             }
-
         })
     }
 
@@ -138,7 +136,7 @@ class ExploreFragment : Fragment(),ExploreAdapter.OnItemClickListener,ArticleAda
     }
 
     override fun onItemClick(article: ArticleData) {
-        val action = ExploreFragmentDirections.actionNavigationExploreToNavigationDetailArticle(article.id)
+        val action = ExploreFragmentDirections.actionNavigationExploreToNavigationDetailArticle(article)
         findNavController().navigate(action)
     }
 

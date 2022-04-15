@@ -19,6 +19,7 @@ import com.example.readdit.ui.QuoteData
 import com.example.readdit.ui.ViewModel
 import com.example.readdit.ui.article.ArticleAdapter
 import com.example.readdit.ui.article.ArticleData
+import com.example.readdit.ui.article.ArticleFragmentDirections
 import com.example.readdit.ui.article.ReadHistoryData
 import com.example.readdit.ui.library.LibraryFragmentDirections
 import com.google.firebase.database.FirebaseDatabase
@@ -105,7 +106,7 @@ class HomeFragment : Fragment(), ArticleAdapter.OnItemClickListener {
     }
 
     override fun onItemClick(article: ArticleData) {
-        val action = HomeFragmentDirections.actionNavigationHomeToNavigationDetailArticle(article.id)
+        val action = HomeFragmentDirections.actionNavigationHomeToNavigationDetailArticle(article)
         findNavController().navigate(action)
     }
 

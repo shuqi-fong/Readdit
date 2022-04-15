@@ -22,6 +22,7 @@ import com.example.readdit.databinding.FragmentNotesBinding
 import com.example.readdit.ui.ViewModel
 import com.example.readdit.ui.article.ArticleData
 import com.example.readdit.ui.explore.ExploreAdapter
+import com.example.readdit.ui.home.HomeFragmentDirections
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.firestore.*
 
@@ -70,8 +71,9 @@ class NotesFragment : Fragment() ,NotesAdapter.OnItemClickListener
         _binding = null
     }
 
-    override fun onItemClick(position: Int) {
-        TODO("Not yet implemented")
+    override fun onItemClick(notes: NotesData) {
+        val action = NotesFragmentDirections.actionNavigationThoughtsToNavigationSaveNotes(notes)
+        findNavController().navigate(action)
     }
 
 }

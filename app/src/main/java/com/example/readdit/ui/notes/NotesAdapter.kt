@@ -45,12 +45,12 @@ class NotesAdapter(private val context: Context, private val notes: ArrayList<No
         override fun onClick(v: View?) {
             val position : Int = adapterPosition
             if (position != RecyclerView.NO_POSITION){
-                listener.onItemClick(position)
+                listener.onItemClick(notes[position])
             }
         }
     }
 
     interface OnItemClickListener{
-        fun onItemClick(position: Int)
+        fun onItemClick(notes: NotesData)
     }
 }
