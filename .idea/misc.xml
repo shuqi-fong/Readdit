@@ -3,6 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Readdit/app/src/main/res/drawable/rounded_corner.xml" value="0.1155" />
+        <entry key="..\:/Readdit/app/src/main/res/layout/fragment_add_notes.xml" value="0.33" />
+        <entry key="..\:/Readdit/app/src/main/res/layout/fragment_article.xml" value="0.36666666666666664" />
+        <entry key="..\:/Readdit/app/src/main/res/layout/fragment_explore.xml" value="0.36666666666666664" />
+        <entry key="..\:/Readdit/app/src/main/res/layout/fragment_library.xml" value="0.36666666666666664" />
+        <entry key="..\:/Readdit/app/src/main/res/layout/fragment_notes.xml" value="0.33" />
+        <entry key="..\:/Readdit/app/src/main/res/layout/fragment_thoughts.xml" value="0.28125" />
+        <entry key="..\:/Readdit/app/src/main/res/layout/fragment_view_notes.xml" value="0.75" />
+        <entry key="..\:/Readdit/app/src/main/res/layout/list_item_article.xml" value="0.36666666666666664" />
+        <entry key="..\:/Readdit/app/src/main/res/layout/list_item_explore.xml" value="0.36666666666666664" />
+        <entry key="..\:/Readdit/app/src/main/res/layout/list_item_notes.xml" value="0.5" />
         <entry key="..\:/Users/jiahe/ReadditAsg/app/src/main/res/drawable-anydpi/ic_bookmark_marked.xml" value="0.13177083333333334" />
         <entry key="..\:/Users/jiahe/ReadditAsg/app/src/main/res/drawable-anydpi/ic_bookmark_unmarked.xml" value="0.13177083333333334" />
         <entry key="..\:/Users/jiahe/ReadditAsg/app/src/main/res/drawable/navigation_icon_color.xml" value="0.13541666666666666" />
