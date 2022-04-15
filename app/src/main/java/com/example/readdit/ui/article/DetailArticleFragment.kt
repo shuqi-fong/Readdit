@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.readdit.databinding.DetailItemArticleBinding
 import com.example.readdit.ui.ViewModel
@@ -47,7 +48,9 @@ class DetailArticleFragment : Fragment() {
         }
         binding.date.text = sdf.format(article.datePosted?.toDate())
         binding.topic.text = article.topic
-
+        binding.back.setOnClickListener(){
+            findNavController().popBackStack()
+        }
         ViewModel.readhistory.observe(viewLifecycleOwner, Observer {
             for (readhistory in it) {
                 if (article.id == readhistory.article && readhistory.isBookmarked) {

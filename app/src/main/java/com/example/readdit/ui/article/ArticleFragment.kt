@@ -46,6 +46,9 @@ class ArticleFragment : Fragment(),ArticleAdapter.OnItemClickListener {
         result = arrayListOf()
         readHistoryList = arrayListOf()
         bookmarkedList = arrayListOf()
+        binding.back.setOnClickListener(){
+            findNavController().popBackStack()
+        }
         binding.title.text = args.topicName
         ViewModel.getFilteredArticle(args.topicName)
         ViewModel.filteredArticle.observe(viewLifecycleOwner, Observer {
