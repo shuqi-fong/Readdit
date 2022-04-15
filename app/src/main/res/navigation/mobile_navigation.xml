@@ -36,8 +36,21 @@
 
     <fragment
         android:id="@+id/navigation_thoughts"
-        android:name="com.example.readdit.ui.thoughts.ThoughtsFragment"
-        tools:layout="@layout/fragment_thoughts" />
+        android:name="com.example.readdit.ui.notes.NotesFragment"
+        tools:layout="@layout/fragment_notes" >
+        <action
+            android:id="@+id/action_navigation_thoughts_to_navigation_add_notes"
+            app:destination="@id/navigation_add_notes" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_add_notes"
+        android:name="com.example.readdit.ui.notes.AddNotesFragment"
+        tools:layout="@layout/fragment_add_notes" >
+        <action
+            android:id="@+id/action_navigation_add_notes_to_navigation_thoughts"
+            app:destination="@id/navigation_thoughts" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_profile"
