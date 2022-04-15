@@ -3,25 +3,40 @@ package com.example.readdit.ui.explore
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.util.Log
+import android.view.*
+import android.widget.SearchView
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.view.isEmpty
+import androidx.core.view.isNotEmpty
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.readdit.R
 import com.example.readdit.databinding.FragmentExploreBinding
+import com.example.readdit.ui.article.ArticleAdapter
+import com.example.readdit.ui.article.ArticleData
+import com.example.readdit.ui.article.ArticleFragment
 import com.google.firebase.firestore.*
 import kotlinx.android.synthetic.main.fragment_explore.*
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
+import com.example.readdit.ui.ViewModel
+import com.example.readdit.ui.article.ReadHistoryData
+import com.example.readdit.ui.library.LibraryFragmentDirections
 
-class ExploreFragment : Fragment(),ExploreAdapter.OnItemClickListener {
+
+class ExploreFragment : Fragment(),ExploreAdapter.OnItemClickListener,ArticleAdapter.OnItemClickListener{
 
     private lateinit var db: FirebaseFirestore
     private lateinit var exploreList: ArrayList<ExploreData>
+    private lateinit var articleList: ArrayList<ArticleData>
+    private lateinit var readHistoryList: ArrayList<ReadHistoryData>
+    private lateinit var filteredArticleList: ArrayList<ArticleData>
     private lateinit var exploreAdapter: ExploreAdapter
-    private lateinit var exploreViewModel: ExploreViewModel
+    private lateinit var articleAdapter: ArticleAdapter
+    private lateinit var ViewModel: ViewModel
     private var _binding: FragmentExploreBinding? = null
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -32,35 +47,81 @@ class ExploreFragment : Fragment(),ExploreAdapter.OnItemClickListener {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        exploreViewModel =
-            ViewModelProvider(this).get(ExploreViewModel::class.java)
+        ViewModel = ViewModelProvider(this).get(com.example.readdit.ui.ViewModel::class.java)
 
         _binding = FragmentExploreBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         exploreList = arrayListOf()
-        exploreAdapter = ExploreAdapter(requireContext(),exploreList,this)
-        binding.recyclerView.adapter = exploreAdapter
-        binding.recyclerView.layoutManager = GridLayoutManager(requireContext(),2)
-        listFiles()
+        articleList = arrayListOf()
+        readHistoryList = arrayListOf()
+
+        search()
         return root
     }
 
-    private fun listFiles() {
-        db = FirebaseFirestore.getInstance()
-        db.collection("explore")
-            .addSnapshotListener { value, error ->
-                if (error != null) {
-                    Log.d("Firestore Error", error.message.toString())
-                }
+    fun search(){
 
-                for (dc: DocumentChange in value?.documentChanges!!) {
-                    if (dc.type == DocumentChange.Type.ADDED) {
-                        exploreList.add(dc.document.toObject(ExploreData::class.java))
-                    }
-                }
-                exploreAdapter.notifyDataSetChanged()
+        binding.searchBar.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(content: String?): Boolean {
+                return false
             }
+
+            override fun onQueryTextChange(content: String?): Boolean {
+                Log.d("kfc",content.toString())
+                Log.d("kfc",content.isNullOrEmpty().toString())
+                if (content.isNullOrEmpty()){
+                    readExploreData()
+                }else{
+                    readArticleData()
+                    filter(content)
+                }
+                return false
+            }
+
+        })
+    }
+
+    fun readExploreData(){
+        ViewModel.explore.observe(viewLifecycleOwner, Observer{
+            exploreList = it
+            exploreAdapter = ExploreAdapter(requireContext(),exploreList,this)
+            binding.recyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
+            binding.recyclerView.adapter = exploreAdapter
+        })
+    }
+
+    private fun readArticleData() {
+        ViewModel.article.observe(viewLifecycleOwner, Observer{
+            articleList = it
+            articleAdapter = ArticleAdapter(requireContext(),articleList,readHistoryList,this)
+            binding.recyclerView.adapter = articleAdapter
+        })
+        Log.d("kfc",articleList.toString())
+    }
+
+    private fun readReadHistoryData() {
+        ViewModel.readhistory.observe(viewLifecycleOwner, Observer{
+            readHistoryList = it
+        })
+    }
+
+    private fun filter(text: String) {
+        readReadHistoryData()
+        filteredArticleList = arrayListOf()
+        articleAdapter = ArticleAdapter(requireContext(),filteredArticleList,readHistoryList,this)
+        //looping through existing elements
+        for (article in articleList) {
+            //if the existing elements contains the search input
+            if (article.title.lowercase().contains(text.lowercase())) {
+                //adding the element to filtered list
+                filteredArticleList.add(article)
+            }
+        }
+        //calling a method of the adapter class and passing the filtered list
+        binding.recyclerView.adapter = articleAdapter
+        binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        articleAdapter.notifyDataSetChanged()
     }
 
     override fun onItemClick(position: Int) {
@@ -74,6 +135,11 @@ class ExploreFragment : Fragment(),ExploreAdapter.OnItemClickListener {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onItemClick(article: ArticleData) {
+        val action = ExploreFragmentDirections.actionNavigationExploreToNavigationDetailArticle(article.id)
+        findNavController().navigate(action)
     }
 
 }

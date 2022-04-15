@@ -10,7 +10,7 @@
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:background="@color/beige"
-        app:itemIconTint="@drawable/navigation_icon_color"
+        app:itemIconTint="@null"
         app:itemTextColor="@drawable/navigation_icon_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"

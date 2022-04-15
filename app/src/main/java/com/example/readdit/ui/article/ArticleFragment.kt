@@ -9,15 +9,23 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.navArgs
+import com.example.readdit.MainActivity
 import com.example.readdit.databinding.FragmentArticleBinding
+import androidx.navigation.fragment.findNavController
+import android.R
+import androidx.lifecycle.Observer
+import androidx.navigation.findNavController
+import com.example.readdit.ui.ViewModel
 import com.example.readdit.ui.explore.ExploreFragmentDirections
 import com.google.firebase.firestore.*
 
 class ArticleFragment : Fragment(),ArticleAdapter.OnItemClickListener {
 
-    private lateinit var articleViewModel: ArticleViewModel
+    private lateinit var ViewModel: ViewModel
     private lateinit var db: FirebaseFirestore
-    private lateinit var articleList: ArrayList<ArticleData>
+    private lateinit var result: ArrayList<ArticleData>
+    private lateinit var readHistoryList: ArrayList<ReadHistoryData>
+    private lateinit var bookmarkedList: ArrayList<ReadHistoryData>
     private lateinit var articleAdapter: ArticleAdapter
     private var _binding: FragmentArticleBinding? = null
     // This property is only valid between onCreateView and
@@ -30,42 +38,29 @@ class ArticleFragment : Fragment(),ArticleAdapter.OnItemClickListener {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        articleViewModel =
-            ViewModelProvider(this).get(ArticleViewModel::class.java)
+        ViewModel = ViewModelProvider(this).get(com.example.readdit.ui.ViewModel::class.java)
 
         _binding = FragmentArticleBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        articleList = arrayListOf()
-        articleAdapter = ArticleAdapter(requireContext(),articleList,this)
-        binding.recyclerView.adapter = articleAdapter
-
-        listFiles()
+        result = arrayListOf()
+        readHistoryList = arrayListOf()
+        bookmarkedList = arrayListOf()
+        binding.title.text = args.topicName
+        ViewModel.getFilteredArticle(args.topicName)
+        ViewModel.filteredArticle.observe(viewLifecycleOwner, Observer {
+            result = it
+                ViewModel.readhistory.observe(viewLifecycleOwner, Observer{
+                    articleAdapter = ArticleAdapter(requireContext(),result,it,this)
+                    binding.recyclerView.adapter = articleAdapter
+                })
+        })
         return root
     }
 
-    private fun listFiles() {
-        db = FirebaseFirestore.getInstance()
-        db.collection("article").whereEqualTo("topic",args.topicName)
-            .addSnapshotListener(object : EventListener<QuerySnapshot> {
-                override fun onEvent(value: QuerySnapshot?, error: FirebaseFirestoreException?) {
-                    if (error != null) {
-                        Log.d("Firestore Error", error.message.toString())
-                    }
-
-                    for (dc: DocumentChange in value?.documentChanges!!) {
-                        if (dc.type == DocumentChange.Type.ADDED) {
-                            articleList.add(dc.document.toObject(ArticleData::class.java))
-                        }
-                    }
-                    Log.d("kfc","$articleList")
-                    articleAdapter.notifyDataSetChanged()
-                }
-            })
-    }
-
-    override fun onItemClick(position: Int) {
-        Toast.makeText(requireContext(),"Item $position clicked",Toast.LENGTH_SHORT).show()
+    override fun onItemClick(article:ArticleData) {
+        val action = ArticleFragmentDirections.actionNavigationArticleToNavigationDetailArticle(article.id)
+        findNavController().navigate(action)
     }
 
     override fun onDestroyView() {
