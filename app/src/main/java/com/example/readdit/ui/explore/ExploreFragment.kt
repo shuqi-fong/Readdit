@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.example.readdit.R
 import com.example.readdit.databinding.FragmentExploreBinding
 import com.google.firebase.firestore.*
-import kotlinx.android.synthetic.main.fragment_explore.*
 
 class ExploreFragment : Fragment(),ExploreAdapter.OnItemClickListener {
 

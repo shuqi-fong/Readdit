@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "497743559781",
+    "firebase_url": "https://readdit-d96ed-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "readdit-d96ed",
+    "storage_bucket": "readdit-d96ed.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:497743559781:android:cc0fff577dca81dd70da8c",
+        "android_client_info": {
+          "package_name": "com.example.readdit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "497743559781-ln0lsho6fo4119niejlduh5rlvtsdgka.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDONwVBrv2vgP8oKQ3uGTvOd7TmsZw1S6E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "497743559781-ln0lsho6fo4119niejlduh5rlvtsdgka.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

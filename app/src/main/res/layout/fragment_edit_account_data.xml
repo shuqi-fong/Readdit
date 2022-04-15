@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="30dp"
+    tools:context=".ui.profile.EditAccountDataFragment">
+
+    <!-- Header -->
+    <TextView
+        android:id="@+id/edit_profile_data_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/hoboken_medium"
+        android:text=""
+        android:textColor="@color/peach"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Edit Username -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/edit_username_til"
+        android:layout_width="330dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="70dp"
+        android:textColorHint="@color/beige"
+        android:textColor="@color/beige"
+        android:visibility="invisible"
+        app:hintEnabled="false"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_username_et"
+            android:paddingHorizontal="0dp"
+            android:hint="@string/enter_new_username"
+            android:textColorHint="@color/beige"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:textColor="@color/beige"
+            android:textSize="14sp"
+            app:backgroundTint="@color/beige"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Edit Email Address -->
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/edit_email_til"
+        android:layout_width="330dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="70dp"
+        android:textColorHint="@color/beige"
+        android:textColor="@color/beige"
+        android:visibility="invisible"
+        app:hintEnabled="false"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_email_et"
+            android:paddingHorizontal="0dp"
+            android:inputType="textEmailAddress"
+            android:hint="@string/sign_up_email_hint"
+            android:textColorHint="@color/beige"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:textColor="@color/beige"
+            android:textSize="14sp"
+            app:backgroundTint="@color/beige"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <!-- Edit Password -->
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/edit_pw_til"
+        android:layout_width="330dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="70dp"
+        android:textColorHint="@color/beige"
+        android:textColor="@color/beige"
+        android:visibility="invisible"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="@color/beige"
+        app:hintEnabled="false"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edit_pw_et"
+            android:inputType="textPassword"
+            android:paddingHorizontal="0dp"
+            android:hint="@string/sign_up_pw_hint"
+            android:textColorHint="@color/beige"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:textColor="@color/beige"
+            android:textSize="14sp"
+            app:backgroundTint="@color/beige"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!--  Save Button  -->
+    <Button
+        android:id="@+id/save_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_button_beige"
+        android:fontFamily="@font/poppins_bold"
+        android:text="@string/save_button_label"
+        android:textAllCaps="false"
+        android:textColor="@color/peach"
+        android:textSize="14sp"
+        android:layout_marginBottom="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/discard_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!--  Discard Button  -->
+    <Button
+        android:id="@+id/discard_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_button_grey"
+        android:fontFamily="@font/poppins_bold"
+        android:text="@string/cancel_button_label"
+        android:textAllCaps="false"
+        android:textColor="@color/grey"
+        android:textSize="14sp"
+        android:layout_marginBottom="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,6 +9,9 @@
     <color name="white">#FFFFFFFF</color>
     <color name="beige">#F8F6E7</color>
     <color name="grey">#454F59</color>
+    <color name="dark_grey">#2F363C</color>
+    <color name="light_grey">#C5CCD3</color>
     <color name="peach">#F3C788</color>
+    <color name="red">#CC6163</color>
     <color name="transparent">#C4C4C4</color>
 </resources>

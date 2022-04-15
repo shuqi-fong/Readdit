@@ -3,6 +3,46 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/ASUS/TARUC/Readdit/app/src/main/res/drawable-anydpi/ic_profile.xml" value="0.21837606837606838" />
+        <entry key="..\:/Users/ASUS/TARUC/Readdit/app/src/main/res/drawable/circle.xml" value="0.21837606837606838" />
+        <entry key="..\:/Users/ASUS/TARUC/Readdit/app/src/main/res/drawable/custom_progress_bar.xml" value="0.21837606837606838" />
+        <entry key="..\:/Users/ASUS/TARUC/Readdit/app/src/main/res/drawable/custom_switch.xml" value="0.13162393162393163" />
+        <entry key="..\:/Users/ASUS/TARUC/Readdit/app/src/main/res/drawable/edit_3.xml" value="0.1425925925925926" />
+        <entry key="..\:/Users/ASUS/TARUC/Readdit/app/src/main/res/drawable/img.xml" value="0.21837606837606838" />
+        <entry key="..\:/Users/ASUS/TARUC/Readdit/app/src/main/res/drawable/navigation_icon_color.xml" value="0.21837606837606838" />
+        <entry key="..\:/Users/ASUS/TARUC/Readdit/app/src/main/res/drawable/round_outline_for_image.xml" value="0.1425925925925926" />
+        <entry key="..\:/Users/ASUS/TARUC/Readdit/app/src/main/res/drawable/rounded_block.xml" value="0.23657407407407408" />
+        <entry key="..\:/Users/ASUS/TARUC/Readdit/app/src/main/res/drawable/rounded_button_beige.xml" value="0.23657407407407408" />
+        <entry key="..\:/Users/ASUS/TARUC/Readdit/app/src/main/res/drawable/rounded_button_grey.xml" value="0.21837606837606838" />
+        <entry key="..\:/Users/ASUS/TARUC/Readdit/app/src/main/res/drawable/switch_thumb.xml" value="0.13034188034188035" />
+        <entry key="..\:/Users/ASUS/TARUC/Readdit/app/src/main/res/drawable/switch_track.xml" value="0.13034188034188035" />
+        <entry key="..\:/Users/ASUS/TARUC/Readdit/app/src/main/res/drawable/tv_border.xml" value="0.21837606837606838" />
+        <entry key="..\:/Users/ASUS/TARUC/Readdit/app/src/main/res/layout/fragment_about.xml" value="0.2" />
+        <entry key="..\:/Users/ASUS/TARUC/Readdit/app/src/main/res/layout/fragment_edit_account_data.xml" value="0.20512820512820512" />
+        <entry key="..\:/Users/ASUS/TARUC/Readdit/app/src/main/res/layout/fragment_edit_profile.xml" value="0.4" />
+        <entry key="..\:/Users/ASUS/TARUC/Readdit/app/src/main/res/layout/fragment_edit_profile_data.xml" value="0.2" />
+        <entry key="..\:/Users/ASUS/TARUC/Readdit/app/src/main/res/layout/fragment_explore.xml" value="0.11296296296296296" />
+        <entry key="..\:/Users/ASUS/TARUC/Readdit/app/src/main/res/layout/fragment_forgot_password.xml" value="0.4" />
+        <entry key="..\:/Users/ASUS/TARUC/Readdit/app/src/main/res/layout/fragment_history.xml" value="0.19791666666666666" />
+        <entry key="..\:/Users/ASUS/TARUC/Readdit/app/src/main/res/layout/fragment_home.xml" value="0.4" />
+        <entry key="..\:/Users/ASUS/TARUC/Readdit/app/src/main/res/layout/fragment_intro.xml" value="0.2087378640776699" />
+        <entry key="..\:/Users/ASUS/TARUC/Readdit/app/src/main/res/layout/fragment_library.xml" value="0.19791666666666666" />
+        <entry key="..\:/Users/ASUS/TARUC/Readdit/app/src/main/res/layout/fragment_notification.xml" value="0.536" />
+        <entry key="..\:/Users/ASUS/TARUC/Readdit/app/src/main/res/layout/fragment_onboarding.xml" value="0.2222222222222222" />
+        <entry key="..\:/Users/ASUS/TARUC/Readdit/app/src/main/res/layout/fragment_onboarding_first_screen.xml" value="0.264" />
+        <entry key="..\:/Users/ASUS/TARUC/Readdit/app/src/main/res/layout/fragment_onboarding_fourth_screen.xml" value="0.20512820512820512" />
+        <entry key="..\:/Users/ASUS/TARUC/Readdit/app/src/main/res/layout/fragment_onboarding_second_screen.xml" value="0.45353159851301117" />
+        <entry key="..\:/Users/ASUS/TARUC/Readdit/app/src/main/res/layout/fragment_onboarding_third_screen.xml" value="0.2" />
+        <entry key="..\:/Users/ASUS/TARUC/Readdit/app/src/main/res/layout/fragment_onboarding_view_pager.xml" value="0.176" />
+        <entry key="..\:/Users/ASUS/TARUC/Readdit/app/src/main/res/layout/fragment_profile.xml" value="0.264" />
+        <entry key="..\:/Users/ASUS/TARUC/Readdit/app/src/main/res/layout/fragment_set_up_profile.xml" value="0.536" />
+        <entry key="..\:/Users/ASUS/TARUC/Readdit/app/src/main/res/layout/fragment_sign_in.xml" value="0.72" />
+        <entry key="..\:/Users/ASUS/TARUC/Readdit/app/src/main/res/layout/fragment_sign_up.xml" value="0.6" />
+        <entry key="..\:/Users/ASUS/TARUC/Readdit/app/src/main/res/layout/fragment_splash_screen.xml" value="0.176" />
+        <entry key="..\:/Users/ASUS/TARUC/Readdit/app/src/main/res/layout/fragment_thoughts.xml" value="0.14786324786324787" />
+        <entry key="..\:/Users/ASUS/TARUC/Readdit/app/src/main/res/layout/list_item_article.xml" value="0.1" />
+        <entry key="..\:/Users/ASUS/TARUC/Readdit/app/src/main/res/layout/list_item_explore.xml" value="0.2006340579710145" />
+        <entry key="..\:/Users/ASUS/TARUC/Readdit/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.21837606837606838" />
         <entry key="..\:/Users/jiahe/ReadditAsg/app/src/main/res/drawable-anydpi/ic_bookmark_marked.xml" value="0.13177083333333334" />
         <entry key="..\:/Users/jiahe/ReadditAsg/app/src/main/res/drawable-anydpi/ic_bookmark_unmarked.xml" value="0.13177083333333334" />
         <entry key="..\:/Users/jiahe/ReadditAsg/app/src/main/res/drawable/navigation_icon_color.xml" value="0.13541666666666666" />

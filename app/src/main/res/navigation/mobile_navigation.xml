@@ -8,7 +8,8 @@
     <fragment
         android:id="@+id/navigation_home"
         android:name="com.example.readdit.ui.home.HomeFragment"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_explore"
@@ -31,7 +32,20 @@
     <fragment
         android:id="@+id/navigation_profile"
         android:name="com.example.readdit.ui.profile.ProfileFragment"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_navigation_profile_to_navigation_splash_screen"
+            app:destination="@id/navigation_splash_screen" />
+        <action
+            android:id="@+id/action_navigation_profile_to_navigation_notification"
+            app:destination="@id/navigation_notification" />
+        <action
+            android:id="@+id/action_navigation_profile_to_navigation_account"
+            app:destination="@id/navigation_account" />
+        <action
+            android:id="@+id/action_navigation_profile_to_navigation_about"
+            app:destination="@id/navigation_about" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_article"
@@ -41,4 +55,96 @@
             android:name="topicName"
             app:argType="string" />
     </fragment>
+
+    <fragment
+        android:id="@+id/navigation_sign_up"
+        android:name="com.example.readdit.ui.signup.SignUpFragment"
+        tools:layout="@layout/fragment_sign_up" >
+        <action
+            android:id="@+id/action_navigation_sign_up_to_navigation_sign_in"
+            app:destination="@id/navigation_sign_in" />
+        <action
+            android:id="@+id/action_navigation_sign_up_to_navigation_home"
+            app:destination="@id/navigation_home" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_sign_in"
+        android:name="com.example.readdit.ui.signin.SignInFragment"
+        tools:layout="@layout/fragment_sign_in" >
+        <action
+            android:id="@+id/action_navigation_sign_in_to_navigation_sign_up"
+            app:destination="@id/navigation_sign_up" />
+        <action
+            android:id="@+id/action_navigation_sign_in_to_navigation_home"
+            app:destination="@id/navigation_home" />
+        <action
+            android:id="@+id/action_navigation_sign_in_to_navigation_forgot_password"
+            app:destination="@id/navigation_forgot_password" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_forgot_password"
+        android:name="com.example.readdit.ui.signin.ForgotPasswordFragment"
+        tools:layout="@layout/fragment_forgot_password" >
+        <action
+            android:id="@+id/action_navigation_forgot_password_to_navigation_sign_in"
+            app:destination="@id/navigation_sign_in" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_splash_screen"
+        android:name="com.example.readdit.ui.onboarding.SplashScreenFragment"
+        tools:layout="@layout/fragment_splash_screen" >
+        <action
+            android:id="@+id/action_navigation_splash_screen_to_navigation_onboarding_view_pager"
+            app:destination="@id/navigation_onboarding_view_pager" />
+        <action
+            android:id="@+id/action_navigation_splash_screen_to_navigation_home"
+            app:destination="@id/navigation_home" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_onboarding_view_pager"
+        android:name="com.example.readdit.ui.onboarding.OnboardingViewPagerFragment"
+        tools:layout="@layout/fragment_onboarding_view_pager" >
+        <action
+            android:id="@+id/action_navigation_onboarding_view_pager_to_navigation_sign_up"
+            app:destination="@id/navigation_sign_up" />
+        <action
+            android:id="@+id/action_navigation_onboarding_view_pager_to_navigation_sign_in"
+            app:destination="@id/navigation_sign_in" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_about"
+        android:name="com.example.readdit.ui.profile.about.AboutFragment"
+        tools:layout="@layout/fragment_about" />
+
+    <fragment
+        android:id="@+id/navigation_account"
+        android:name="com.example.readdit.ui.profile.AccountFragment"
+        tools:layout="@layout/fragment_account" >
+        <action
+            android:id="@+id/action_navigation_account_to_navigation_edit_account_data"
+            app:destination="@id/navigation_edit_account_data" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_edit_account_data"
+        android:name="com.example.readdit.ui.profile.EditAccountDataFragment"
+        tools:layout="@layout/fragment_edit_account_data" >
+        <argument
+            android:name="dataField"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_navigation_edit_account_data_to_navigation_account"
+            app:destination="@id/navigation_account" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_notification"
+        android:name="com.example.readdit.ui.profile.notification.NotificationFragment"
+        tools:layout="@layout/fragment_notification" />
+
 </navigation>

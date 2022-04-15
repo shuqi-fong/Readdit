@@ -1,40 +1,58 @@
 package com.example.readdit.ui.profile
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.lifecycle.Observer
+import android.widget.Toast
+import androidx.navigation.fragment.findNavController
 import com.example.readdit.R
 import com.example.readdit.databinding.FragmentProfileBinding
+import com.google.firebase.auth.FirebaseAuth
 
 class ProfileFragment : Fragment() {
-
-    private lateinit var profileViewModel: ProfileViewModel
+    // View Model Binding
     private var _binding: FragmentProfileBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
+
+    // Firebase Authentication
+    private lateinit var firebaseAuth: FirebaseAuth
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        profileViewModel =
-            ViewModelProvider(this).get(ProfileViewModel::class.java)
-
+        // Initialize bindings
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textProfile
-        profileViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
+        // Initialize Firebase Authentication
+        firebaseAuth = FirebaseAuth.getInstance()
+
+        // Redirect user to account page
+        binding.accountButton.setOnClickListener{
+            findNavController().navigate(R.id.action_navigation_profile_to_navigation_account)
+        }
+
+        // Redirect user to notification page
+        binding.notificationButton.setOnClickListener{
+            findNavController().navigate(R.id.action_navigation_profile_to_navigation_notification)
+        }
+
+        // Redirect user to about page
+        binding.aboutButton.setOnClickListener{
+            findNavController().navigate(R.id.action_navigation_profile_to_navigation_about)
+        }
+
+        // Log the user out and redirect user to splash screen
+        binding.logOutButton.setOnClickListener{
+            firebaseAuth.signOut()
+            Toast.makeText(requireContext(), "Successfully logged out", Toast.LENGTH_SHORT).show()
+            findNavController().navigate(R.id.action_navigation_profile_to_navigation_splash_screen)
+        }
+
         return root
     }
 
