@@ -50,6 +50,12 @@ class HistoryFragment : Fragment(), ArticleAdapter.OnItemClickListener {
                 articleList = it
                 result = ViewModel.getFilteredList(historyList,articleList)
                 ViewModel.readhistory.observe(viewLifecycleOwner, Observer {
+                    Log.d("kfc",result.toString())
+                    if(it.size == 0) {
+                        binding.noDataText.visibility = View.VISIBLE
+                    } else {
+                        binding.noDataText.visibility = View.INVISIBLE
+                    }
                     articleAdapter = ArticleAdapter(requireContext(),result,it,this)
                     binding.recyclerView.adapter = articleAdapter
                 })

@@ -56,6 +56,12 @@ class NotesFragment : Fragment() ,NotesAdapter.OnItemClickListener
 
         notesList = arrayListOf()
         ViewModel.notes.observe(viewLifecycleOwner, Observer {
+            Log.d("kfc",it.toString())
+            if(it.size == 0) {
+                binding.noDataText.visibility = View.VISIBLE
+            } else {
+                binding.noDataText.visibility = View.INVISIBLE
+            }
             notesList = it
             notesAdapter = NotesAdapter(requireContext(),notesList,this)
             binding.recyclerView.adapter = notesAdapter
@@ -66,12 +72,6 @@ class NotesFragment : Fragment() ,NotesAdapter.OnItemClickListener
         binding.addNotes.setOnClickListener() {
             findNavController().navigate(R.id.action_navigation_thoughts_to_navigation_add_notes)
         }
-
-        //        if(no data) {
-        //            binding.noDataText.visibility = View.VISIBLE
-        //        } else {
-        //            binding.noDataText.visibility = View.INVISIBLE
-        //        }
 
         return root
     }

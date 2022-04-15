@@ -28,8 +28,7 @@
         <entry key="..\:/Users/ASUS/TARUC/Readdit/app/src/main/res/layout/fragment_history.xml" value="0.19791666666666666" />
         <entry key="..\:/Users/ASUS/TARUC/Readdit/app/src/main/res/layout/fragment_home.xml" value="0.4" />
         <entry key="..\:/Users/ASUS/TARUC/Readdit/app/src/main/res/layout/fragment_intro.xml" value="0.2087378640776699" />
-        <entry key="..\:/Users/ASUS/TARUC/Readdit/app/src/main/res/layout/fragment_library.xml" value="0.1" />
-        <entry key="..\:/Users/ASUS/TARUC/Readdit/app/src/main/res/layout/fragment_notes.xml" value="0.20512820512820512" />
+        <entry key="..\:/Users/ASUS/TARUC/Readdit/app/src/main/res/layout/fragment_library.xml" value="0.19791666666666666" />
         <entry key="..\:/Users/ASUS/TARUC/Readdit/app/src/main/res/layout/fragment_notification.xml" value="0.1" />
         <entry key="..\:/Users/ASUS/TARUC/Readdit/app/src/main/res/layout/fragment_onboarding.xml" value="0.2222222222222222" />
         <entry key="..\:/Users/ASUS/TARUC/Readdit/app/src/main/res/layout/fragment_onboarding_first_screen.xml" value="0.264" />
@@ -59,12 +58,14 @@
         <entry key="..\:/Users/jiahe/ReadditAsg/app/src/main/res/layout/activity_main.xml" value="0.11927083333333334" />
         <entry key="..\:/Users/jiahe/ReadditAsg/app/src/main/res/layout/activity_navigation_bar.xml" value="0.1721014492753623" />
         <entry key="..\:/Users/jiahe/ReadditAsg/app/src/main/res/layout/fragment_article.xml" value="0.1" />
-        <entry key="..\:/Users/jiahe/ReadditAsg/app/src/main/res/layout/fragment_bookmark.xml" value="0.1" />
+        <entry key="..\:/Users/jiahe/ReadditAsg/app/src/main/res/layout/fragment_bookmark.xml" value="0.2" />
         <entry key="..\:/Users/jiahe/ReadditAsg/app/src/main/res/layout/fragment_explore.xml" value="0.264" />
         <entry key="..\:/Users/jiahe/ReadditAsg/app/src/main/res/layout/fragment_history.xml" value="0.1" />
         <entry key="..\:/Users/jiahe/ReadditAsg/app/src/main/res/layout/fragment_home.xml" value="0.1721014492753623" />
         <entry key="..\:/Users/jiahe/ReadditAsg/app/src/main/res/layout/fragment_library.xml" value="0.1" />
+        <entry key="..\:/Users/jiahe/ReadditAsg/app/src/main/res/layout/fragment_notes.xml" value="0.12360688956433637" />
         <entry key="..\:/Users/jiahe/ReadditAsg/app/src/main/res/layout/fragment_profile.xml" value="0.1721014492753623" />
+        <entry key="..\:/Users/jiahe/ReadditAsg/app/src/main/res/layout/fragment_save_notes.xml" value="0.2418478260869565" />
         <entry key="..\:/Users/jiahe/ReadditAsg/app/src/main/res/layout/fragment_thoughts.xml" value="0.1721014492753623" />
         <entry key="..\:/Users/jiahe/ReadditAsg/app/src/main/res/layout/list_item_article.xml" value="0.4" />
         <entry key="..\:/Users/jiahe/ReadditAsg/app/src/main/res/layout/list_item_bookmark.xml" value="0.1" />
