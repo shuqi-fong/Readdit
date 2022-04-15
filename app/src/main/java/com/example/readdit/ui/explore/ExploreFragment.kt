@@ -1,30 +1,24 @@
 package com.example.readdit.ui.explore
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.util.Log
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.SearchView
-import androidx.fragment.app.Fragment
 import android.widget.Toast
-import androidx.core.view.isEmpty
-import androidx.core.view.isNotEmpty
-import androidx.navigation.Navigation
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.readdit.R
 import com.example.readdit.databinding.FragmentExploreBinding
+import com.example.readdit.ui.ViewModel
 import com.example.readdit.ui.article.ArticleAdapter
 import com.example.readdit.ui.article.ArticleData
-import com.example.readdit.ui.article.ArticleFragment
-import com.google.firebase.firestore.*
-import kotlinx.android.synthetic.main.fragment_explore.*
-import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
-import com.example.readdit.ui.ViewModel
 import com.example.readdit.ui.article.ReadHistoryData
-import com.example.readdit.ui.library.LibraryFragmentDirections
+import com.google.firebase.firestore.FirebaseFirestore
 
 
 class ExploreFragment : Fragment(),ExploreAdapter.OnItemClickListener,ArticleAdapter.OnItemClickListener{

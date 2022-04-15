@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="30dp"
+    tools:context=".ui.onboarding.screens.OnboardingFirstScreenFragment">
+
+
+    <ImageView
+        android:id="@+id/blob_bg"
+        android:layout_width="308dp"
+        android:layout_height="310dp"
+        android:layout_marginTop="150dp"
+        android:contentDescription="@string/blob_background_cd"
+        android:src="@drawable/blob"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/article_sample_screen"
+        android:layout_width="267dp"
+        android:layout_height="365dp"
+        android:layout_marginTop="150dp"
+        android:contentDescription="@string/article_screen_cd"
+        android:src="@drawable/article_screen"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/hoboken_medium"
+        android:text="@string/onboarding_heading_1"
+        android:textColor="@color/peach"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/article_sample_screen" />
+
+    <TextView
+        android:id="@+id/caption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins"
+        android:text="@string/onboarding_caption_1"
+        android:textAlignment="center"
+        android:textColor="@color/beige"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/heading" />
+
+    <Button
+        android:id="@+id/skip_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:layout_marginStart="20dp"
+        android:background="@null"
+        android:fontFamily="@font/poppins_bold"
+        android:text="@string/skip_button_label"
+        android:textAllCaps="false"
+        android:textColor="@color/peach"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/caption" />
+
+    <Button
+        android:id="@+id/next_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="20dp"
+        android:background="@null"
+        android:fontFamily="@font/poppins_bold"
+        android:text="@string/next_button_label"
+        android:textAllCaps="false"
+        android:textColor="@color/peach"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/caption" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

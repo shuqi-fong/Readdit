@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="30dp"
+    tools:context=".ui.setting.notification.NotificationFragment">
+
+    <!-- Back button -->
+
+    <Button
+        android:id="@+id/back_button"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="3dp"
+        android:background="@drawable/ic_back"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Header -->
+
+    <TextView
+        android:id="@+id/noti_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/hoboken_medium"
+        android:text="@string/notification_header"
+        android:textColor="@color/peach"
+        android:textSize="30sp"
+        android:layout_marginStart="5dp"
+        app:layout_constraintStart_toEndOf="@id/back_button"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/selected_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins"
+        android:text="09 : 00 AM"
+        android:textColor="@color/light_grey"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dailyNotiSwitch" />
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/dailyNotiSwitch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/poppins"
+        android:text="Daily reading reminder"
+        android:textAlignment="viewStart"
+        android:textColor="@color/beige"
+        app:trackTint="@drawable/switch_track"
+        app:thumbTint="@drawable/switch_thumb"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/noti_header" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

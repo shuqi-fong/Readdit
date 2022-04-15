@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="30dp"
+    tools:context=".ui.setting.SettingFragment">
+
+    <!-- Header -->
+
+    <TextView
+        android:id="@+id/settings_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/hoboken_medium"
+        android:text="@string/settings_header"
+        android:textColor="@color/peach"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Account settings button -->
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/account_button"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="50dp"
+        android:clickable="true"
+        app:cardBackgroundColor="@color/beige"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/settings_header"
+        android:focusable="true">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp">
+
+            <ImageView
+                android:id="@+id/user_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_user"/>
+
+            <TextView
+                android:id="@+id/account_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/user_icon"
+                android:fontFamily="@font/poppins"
+                android:text="@string/account_label"
+                android:textColor="@color/grey"
+                android:textSize="16sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_arrow_right"
+                android:layout_alignParentEnd="true"/>
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <!-- Notification button -->
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/notification_button"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="30dp"
+        android:clickable="true"
+        app:cardBackgroundColor="@color/beige"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/account_button"
+        android:focusable="true">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp">
+
+            <ImageView
+                android:id="@+id/noti_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_bell"/>
+
+            <TextView
+                android:id="@+id/notification_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/noti_icon"
+                android:fontFamily="@font/poppins"
+                android:text="@string/notification_label"
+                android:textColor="@color/grey"
+                android:textSize="16sp" />
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_arrow_right"
+                android:layout_alignParentEnd="true"/>
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <!-- About button -->
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/about_button"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="30dp"
+        android:clickable="true"
+        app:cardBackgroundColor="@color/beige"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/notification_button"
+        android:focusable="true">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp">
+
+            <ImageView
+                android:id="@+id/about_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_info"/>
+
+            <TextView
+                android:id="@+id/about_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/about_icon"
+                android:fontFamily="@font/poppins"
+                android:text="@string/about_label"
+                android:textColor="@color/grey"
+                android:textSize="16sp" />
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_arrow_right"
+                android:layout_alignParentEnd="true"/>
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+    <!-- Log out button -->
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/log_out_button"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="30dp"
+        android:clickable="true"
+        app:cardBackgroundColor="@color/beige"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/about_button"
+        android:focusable="true">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp">
+
+            <ImageView
+                android:id="@+id/log_out_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_log_out"/>
+
+            <TextView
+                android:id="@+id/log_out_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/log_out_icon"
+                android:fontFamily="@font/poppins"
+                android:text="@string/log_out_label"
+                android:textColor="@color/red"
+                android:textSize="16sp" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
