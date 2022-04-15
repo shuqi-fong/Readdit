@@ -20,7 +20,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
+    <SearchView
         android:id="@+id/search_bar"
         android:layout_width="match_parent"
         android:layout_height="48dp"
@@ -28,6 +28,7 @@
         android:background="@drawable/search_bar"
         android:hint="@string/search_notes_hint"
         android:minHeight="48dp"
+        android:iconifiedByDefault="false"
         android:paddingStart="15dp"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
