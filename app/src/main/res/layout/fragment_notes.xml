@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins"
-        android:text="Start reading something today!"
+        android:text="Record down your thoughts, feelings, ideas... anything."
         android:textColor="@color/light_grey"
         tools:layout_editor_absoluteX="148dp"
         tools:layout_editor_absoluteY="445dp"
