@@ -10,5 +10,6 @@
     <color name="beige">#F8F6E7</color>
     <color name="grey">#454F59</color>
     <color name="peach">#F3C788</color>
-    <color name="transparent">#C4C4C4</color>
+    <color name="transparent">#00FFFFFF</color>
+    <color name="semitransparent">#80000000</color>
 </resources>

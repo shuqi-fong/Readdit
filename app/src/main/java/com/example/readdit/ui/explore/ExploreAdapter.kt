@@ -29,7 +29,6 @@ class ExploreAdapter(private val context: Context, private val topic: ArrayList<
 
     override fun onBindViewHolder(holder: ExploreViewHolder, position: Int) {
         val topic = topic[position]
-        Log.d("kfc","$topic")
         Glide.with(context)
             .load(topic.topicImage)
             .into(holder.topicImage)
