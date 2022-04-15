@@ -28,4 +28,9 @@ class FirestoreRepository {
         var collectionReference = db.collection("daily_quote")
         return collectionReference
     }
+
+    fun getNotes(): CollectionReference {
+        var collectionReference =   db.collection("user").document("user001").collection("notes")
+        return collectionReference
+    }
 }

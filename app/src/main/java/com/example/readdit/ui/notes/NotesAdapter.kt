@@ -18,7 +18,7 @@ class NotesAdapter(private val context: Context, private val notes: ArrayList<No
         return notes.size
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NotesAdapter.NotesViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NotesViewHolder {
         return NotesViewHolder(
             LayoutInflater.from(parent.context)
                 .inflate(R.layout.list_item_notes, parent, false)
@@ -28,8 +28,8 @@ class NotesAdapter(private val context: Context, private val notes: ArrayList<No
     override fun onBindViewHolder(holder: NotesViewHolder, position: Int) {
         val sdf = SimpleDateFormat("yyyy-MM-dd")
         val notes = notes[position]
-        holder.title.text = notes.title.toString()
-        holder.body.text = notes.body.toString()
+        holder.title.text = notes.title
+        holder.body.text = notes.body
         holder.lastEdited.text = sdf.format(notes.lastEdited?.toDate())
     }
 

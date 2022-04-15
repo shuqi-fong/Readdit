@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.readdit.R
@@ -34,12 +35,16 @@ class AddNotesFragment : Fragment() {
         builder = AlertDialog.Builder(requireContext())
         val title = binding.noteEditTitle.text.toString()
         val body = binding.noteEditContent.text.toString()
+        binding.back.setOnClickListener(){
+            findNavController().popBackStack()
+        }
         binding.discard.setOnClickListener() {
             builder.setTitle("Alert!")
                 .setMessage("Do you want to discard this note?")
                 .setCancelable(true)
                 .setPositiveButton("Yes"){dialogInterface,it ->
-                    findNavController().navigate(R.id.action_navigation_add_notes_to_navigation_thoughts)
+                    binding.noteEditTitle.text = null
+                    binding.noteEditContent.text = null
                 }
                 .setNegativeButton("No"){dialogInterface,it ->
                     dialogInterface.cancel()
@@ -51,8 +56,8 @@ class AddNotesFragment : Fragment() {
                 .setMessage("Do you want to save this note?")
                 .setCancelable(true)
                 .setPositiveButton("Yes"){dialogInterface,it ->
-                    addNotes(title, body)
-                    findNavController().navigate(R.id.action_navigation_add_notes_to_navigation_thoughts)
+                    addNotes()
+                    Toast.makeText(requireContext(),"Your Note have been saved",Toast.LENGTH_SHORT).show()
                 }
                 .setNegativeButton("No"){dialogInterface,it ->
                     dialogInterface.cancel()
@@ -63,11 +68,11 @@ class AddNotesFragment : Fragment() {
         return root
     }
 
-    private fun addNotes(title:String, body:String) {
+    private fun addNotes() {
         var db = FirebaseFirestore.getInstance()
         val data = hashMapOf(
-            "title" to title,
-            "body" to body,
+            "title" to binding.noteEditTitle.text.toString(),
+            "body" to binding.noteEditContent.text.toString(),
             "lastEdited" to FieldValue.serverTimestamp(),
         )
         db.collection("user").document("user001").collection("notes").add(data)

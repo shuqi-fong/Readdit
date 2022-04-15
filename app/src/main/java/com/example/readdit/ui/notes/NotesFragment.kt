@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.readdit.R
 import com.example.readdit.databinding.FragmentNotesBinding
+import com.example.readdit.ui.ViewModel
 import com.example.readdit.ui.article.ArticleData
 import com.example.readdit.ui.explore.ExploreAdapter
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -27,7 +28,7 @@ import com.google.firebase.firestore.*
 class NotesFragment : Fragment() ,NotesAdapter.OnItemClickListener
 {
 
-    private lateinit var notesViewModel: NotesViewModel
+    private lateinit var ViewModel: ViewModel
     private lateinit var db: FirebaseFirestore
     private lateinit var recyclerView: RecyclerView
     private lateinit var fab: FloatingActionButton
@@ -44,40 +45,25 @@ class NotesFragment : Fragment() ,NotesAdapter.OnItemClickListener
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        notesViewModel = ViewModelProvider(this).get(NotesViewModel::class.java)
+        ViewModel = ViewModelProvider(this).get(com.example.readdit.ui.ViewModel::class.java)
 
         _binding = FragmentNotesBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+        notesList = arrayListOf()
+        ViewModel.notes.observe(viewLifecycleOwner, Observer {
+            notesList = it
+            notesAdapter = NotesAdapter(requireContext(),notesList,this)
+            binding.recyclerView.adapter = notesAdapter
+        })
+
         binding.addNotes.setOnClickListener() {
             findNavController().navigate(R.id.action_navigation_thoughts_to_navigation_add_notes)
         }
-        notesList = arrayListOf()
-        notesAdapter = NotesAdapter(requireContext(),notesList,this)
-        binding.recyclerView.adapter = notesAdapter
-        listNotes()
+
         return root
     }
 
-    private fun listNotes() {
-        db = FirebaseFirestore.getInstance()
-        db.collection("user").document("user001").collection("notes")
-            .addSnapshotListener(object : EventListener<QuerySnapshot> {
-                override fun onEvent(value: QuerySnapshot?, error: FirebaseFirestoreException?) {
-                    if (error != null) {
-                        Log.d("Firestore Error", error.message.toString())
-                    }
-
-                    for (dc: DocumentChange in value?.documentChanges!!) {
-                        if (dc.type == DocumentChange.Type.ADDED) {
-                            notesList.add(dc.document.toObject(NotesData::class.java))
-                        }
-                    }
-                    Log.d("kfc",notesList.toString())
-                    notesAdapter.notifyDataSetChanged()
-                }
-            })
-    }
 
     override fun onDestroyView() {
         super.onDestroyView()

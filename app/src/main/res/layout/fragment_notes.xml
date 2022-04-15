@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.notes.NotesFragment"
-    android:layout_margin="30dp">
+    android:layout_margin="10dp">
 
     <TextView
         android:id="@+id/notes"
@@ -37,7 +37,7 @@
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="525dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:scrollbars="vertical"
         tools:listitem="@layout/list_item_notes"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"

@@ -2,7 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="20dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
@@ -46,10 +47,9 @@
             android:textSize="10sp"
             android:fontFamily="@font/poppins"
             tools:text="Last Edited"
-            android:textColor="@color/transparent"
+            android:textColor="@color/grey"
             android:paddingStart="5dp"
             android:paddingBottom="5dp"/>
-
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
