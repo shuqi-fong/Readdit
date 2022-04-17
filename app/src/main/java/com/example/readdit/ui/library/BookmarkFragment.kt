@@ -48,7 +48,6 @@ class BookmarkFragment : Fragment(), ArticleAdapter.OnItemClickListener {
                 articleList = it
                 result = ViewModel.getFilteredList(bookmarkedList,articleList)
                 ViewModel.readhistory.observe(viewLifecycleOwner, Observer{
-                    Log.d("kfc",result.toString())
                     if(result.size == 0) {
                         binding.noDataText.visibility = View.VISIBLE
                     } else {

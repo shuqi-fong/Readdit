@@ -2,21 +2,15 @@ package com.example.readdit.ui.article
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.navigation.fragment.navArgs
-import com.example.readdit.MainActivity
 import com.example.readdit.databinding.FragmentArticleBinding
 import androidx.navigation.fragment.findNavController
-import android.R
 import androidx.lifecycle.Observer
-import androidx.navigation.findNavController
 import com.example.readdit.ui.ViewModel
-import com.example.readdit.ui.explore.ExploreFragmentDirections
 import com.google.firebase.firestore.*
 
 class ArticleFragment : Fragment(),ArticleAdapter.OnItemClickListener {

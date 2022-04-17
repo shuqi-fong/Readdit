@@ -63,7 +63,7 @@ class SaveNotesFragment : Fragment() {
                 .setMessage("Do you want to save this note?")
                 .setCancelable(true)
                 .setPositiveButton("Yes"){dialogInterface,it ->
-                    ViewModel.saveNotes(noteID,binding.noteEditTitle.toString(),binding.noteEditContent.toString())
+                    ViewModel.saveNotes(noteID,binding.noteEditTitle.text.toString(),binding.noteEditContent.text.toString())
                     Toast.makeText(requireContext(),"Your Note have been updated",Toast.LENGTH_SHORT).show()
                 }
                 .setNegativeButton("No"){dialogInterface,it ->

@@ -6,30 +6,20 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.example.readdit.R
 import com.example.readdit.databinding.FragmentHomeBinding
 import com.example.readdit.ui.QuoteData
 import com.example.readdit.ui.ViewModel
 import com.example.readdit.ui.article.ArticleAdapter
 import com.example.readdit.ui.article.ArticleData
-import com.example.readdit.ui.article.ArticleFragmentDirections
 import com.example.readdit.ui.article.ReadHistoryData
-import com.example.readdit.ui.library.LibraryFragmentDirections
-import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.*
-import kotlinx.android.synthetic.main.fragment_home.*
-import java.text.SimpleDateFormat
 import java.time.LocalDate
-import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
-import java.util.*
 import kotlin.collections.ArrayList
 
 class HomeFragment : Fragment(), ArticleAdapter.OnItemClickListener {
