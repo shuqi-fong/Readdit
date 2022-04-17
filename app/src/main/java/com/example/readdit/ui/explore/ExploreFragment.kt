@@ -118,8 +118,6 @@ class ExploreFragment : Fragment(),ExploreAdapter.OnItemClickListener,ArticleAda
         val topicName = exploreList[position].topicName
         val action = ExploreFragmentDirections.actionNavigationExploreToNavigationArticle(topicName)
         findNavController().navigate(action)
-        Toast.makeText(requireContext(),"Item $position clicked",Toast.LENGTH_SHORT).show()
-
     }
 
     override fun onDestroyView() {
